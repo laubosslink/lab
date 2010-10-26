@@ -1,0 +1,11 @@
+Test sur un fichier de 900Mo
+
+Download : 5.3Mo/s
+Upload : 4.5Mo/S
+
+Schema : 
+
+NAS(readynas 2 duo)   -> switch   -> router   -> switch   -> CPL   -> CPL   -> PC
+		  2Mètres      7Mètres    15Mètres    5Mètres   10Mètres   1Mètre
+
+Total : 40Mètres de RJ45 + cable courrant
