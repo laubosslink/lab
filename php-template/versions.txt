@@ -1,0 +1,7 @@
+1.3 :
+ajout de la fonction getMessages($msg)
+ajout de la fonction addMessage($key, $msg) 
+-> ajout du message dans la variable global $MSG
+
+1.2 :
+remplacer replaceBoucle()

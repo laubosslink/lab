@@ -1,0 +1,183 @@
+/* Kits graphiques par Graphiques-Kits.com */
+/* contact@graphiques-kits.com */
+/* Tous droits réservés 2007 */
+
+body {
+    font-family: verdana;
+    font-size: 10px;
+	color: #000000;
+	background: #5c8eb1 url(../images/fond.jpg) repeat-x;
+	text-align: center;
+    margin: 0 auto 0;
+	position: relative;
+}
+
+div#site {
+    text-align:left;
+    background: url(../images/site.jpg) repeat-y 0 0;
+    width: 1000px;
+    margin : auto
+}
+
+div#header {
+    background: url(../images/header.jpg) no-repeat 0 0;
+    height : 205px;
+    margin : 0;
+    padding:0
+}
+
+img { border: 0; }
+
+a {
+    color : #000000;
+    font-family:verdana;
+    text-decoration:none;
+}
+
+a:hover , a:active , a:focus {
+    color : #0D627E;
+    font-weight : bold;
+    text-decoration:none;
+}
+
+div#footer {
+    background:url(../images/footer.jpg) no-repeat 0 0;
+    height : 101px;
+	clear:both;
+}
+
+div#footer p {
+    text-align: center;
+    font-size: 0.9em;
+    padding-top:40px; 
+    clear:both;
+    color:#666666;
+}
+
+div#footer a {
+    color : #666666;
+    text-decoration:none;
+}
+
+div#left {
+    width:273px;
+	float:left;
+	margin:0px;
+}
+
+div#right {
+    margin-left: 273px;
+	margin-right: 61px;
+}
+
+#left_haut {
+    margin-left:62px;
+	height: 37px;
+	widht: 211px;
+	position: relative;
+	background: url(../images/left-top.jpg) no-repeat;
+}
+
+#left_haut h3 {
+    padding-top:13px;
+	text-align:center;
+	font-size: 1.2em;
+	color:#FFFFFF;
+	margin:0px;
+}
+
+#leftbk {
+    margin-left:62px;
+	widht: 211px;
+	background: url(../images/left-bk.jpg) repeat-y;
+	padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+	position: relative;
+}
+
+#left_bas {
+    margin-left:62px;
+	height: 15px;
+	widht: 211px;
+	background: url(../images/left-bottom.jpg) repeat-y;
+	position: relative;
+}
+
+#right_haut {
+    margin-left:0px;
+	height: 20px;
+	widht: 665px;
+	position: relative;
+	background: url(../images/right-top.jpg) no-repeat;
+}
+
+#right_bas {
+    margin-left:0px;
+	height: 15px;
+	widht: 665px;
+	position: relative;
+	background: url(../images/right-bottom.jpg) no-repeat;
+	margin-bottom:3px;
+}
+
+#rightbk {
+    margin-left:0px;
+	widht: 665px;
+	background: url(../images/right-bk.jpg) repeat-y;
+	padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+	position: relative;
+}
+
+#rightbk h2 {
+    font-size: 1.3em; 
+    color: #2366a7;
+    margin: 0; 
+	padding: 0;
+    margin-bottom: 10px;
+	padding-bottom: 0.3em; 
+	border-bottom: 1px dashed #C0C0C0;
+}
+
+#left h2 { 
+    margin-bottom: 10px;
+	padding-left: 0.5em;
+	padding-bottom: 0.3em;  
+	border-bottom: 1px dashed #C0C0C0; 
+	border-left: 3px solid #C0C0C0; 
+}
+
+ul#navbar{
+    list-style:none;
+    text-align:center;
+    padding-left:140px;
+    padding-top:180px; 
+    font-size:10px;
+	margin:0px;
+}
+
+ul#navbar li{
+    float:left;
+    width:135px;
+    margin:0 14px 0 0;
+    text-align:center;
+    font-size:9px;
+}
+
+ul#navbar li a, ul#navbar li a:link{
+    font-family:Verdana;
+    font-size:9px;
+    text-decoration:none;
+    color:#0D627E;
+}
+
+ul#navbar li a:hover, ul#navbar li a:active, ul#navbar li a:focus {
+    font-family:Verdana;
+    font-size:10px;
+    font-weight:bold;
+    color:#0D627E;
+}

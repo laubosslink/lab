@@ -1,0 +1,1 @@
+http://us2.php.net/manual/en/class.exception.php
