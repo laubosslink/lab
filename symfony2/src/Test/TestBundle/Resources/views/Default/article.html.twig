@@ -1,0 +1,32 @@
+{% extends "TestBundle:Default:body.html.twig" %}
+   
+{% block livera %}
+    {% include "TestBundle:Default:header.html.twig" %}
+    <section id="content" class="content">
+            <div class="main">
+            <div class="container_12">
+                            <div class="wrapper p2">
+                                    <div class="grid_12">
+                                            <h5 class="p0">{% trans %}featured services{% endtrans %}</h5>
+                                                    {% for post in posts %}
+                                                    <h4><a href="#">{{ post.title }}</a></h4>
+                                                    <div>
+                                                            <h5><a href="#">{{ post.subtitle }}</a></h5>
+                                                            <div class="wrapper">
+                                                                    <figure class="img-indent"><img class="border" src="http://livedemo00.template-help.com/wt_37163/images/page1-img1.jpg" alt="" /></figure>
+                                                                    <div class="extra-wrap">
+                                                                            <h6>{{ post.getImportantContent() }}</h6>
+                                                                            {{ post.content }}
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                                    {% endfor %}
+                                    </div>
+                            </div>
+                            <div class="shadow p2"></div>
+                    </div>
+            </div>
+    </section>	
+    {% include "TestBundle:Default:aside.html.twig" %}
+    {% include "TestBundle:Default:footer.html.twig" %}
+{% endblock %}

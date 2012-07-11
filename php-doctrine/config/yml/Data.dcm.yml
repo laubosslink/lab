@@ -1,0 +1,15 @@
+Data:
+    type: entity
+    table: doctrine_data_users
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+    manyToOne:
+        user:
+            targetEntity: Users
+            inversedBy: datas

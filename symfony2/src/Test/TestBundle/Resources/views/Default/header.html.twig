@@ -1,0 +1,22 @@
+    <!--==============================header=================================-->
+    <header id="header">
+            <div class="main">
+                    <h1><a class="logo" href="{{ path('TestBundle_homepage', { '_locale' : current_lang } ) }}">{{ current_lang }}</a></h1>
+                    <nav>
+                            <ul class="sf-menu">
+                                {% for item in pages %}
+                                    <li><a href="#"><strong><strong>{{ item.title|trans }}</strong></strong></a></li>
+                                {% endfor %}				
+                            </ul>			
+                    </nav>
+                    <div class="tm-slider">
+                            <div class="slider">
+                                    <ul class="items">
+                                            <li><img src="{{ asset('bundles/test/images/slide-1.jpg') }}" alt=""></li>
+                                            <li><img src="{{ asset('bundles/test/images/slide-2.jpg') }}" alt=""></li>
+                                            <li><img src="{{ asset('bundles/test/images/slide-3.jpg') }}" alt=""></li>
+                                    </ul>				
+                            </div>
+                    </div>
+            </div>
+    </header>

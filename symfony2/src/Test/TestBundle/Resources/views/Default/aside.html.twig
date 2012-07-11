@@ -1,0 +1,41 @@
+ <!--==============================aside=================================-->
+    <aside>
+            <div class="main">
+            <div class="container_12">
+                            <div class="wrapper">
+                                    <div class="grid_4">
+                                            <h3>{% trans %}News{% endtrans %} &amp; {% trans %}Events{% endtrans %}</h3>
+                                            {% for item in news %}
+                                            <div class="wrapper indent-bot">
+                                                    <div class="date"><a href="#">{{item.date|date('d')}} {{ item.date|date('M')|trans}}</a></div>
+                                                    <div class="extra-wrap">
+                                                            <strong>{{ item.title }}</strong>
+                                                    </div>						
+                                            </div>
+                                            {% endfor %}
+                                    </div>
+                                    <div class="grid_4">
+                                            <h3 class="p2">{% trans %}Recent Posts{% endtrans %}</h3>
+                                            <ul class="list-2 p1">
+                                                    {% for item in posts%}
+                                                        <li class="last-item"><a href="">{{item.title}}</a></li>
+                                                    {% endfor %}
+                                                    <!-- <li><a href="#">Volutpat wisi enim ad minim veniam</a></li>
+                                                    <li class="last-item"><a href="#">Quis nostrud exerci tation.</a></li> -->
+                                            </ul>
+                                            <div class="alignright">
+                                                    <a class="button2" href="#">{% trans %}more{% endtrans %}</a>
+                                            </div>
+                                    </div>
+                                    <!--<div class="grid_4">
+                                            <h3>Company Safety</h3>
+                                            <p><strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</strong> sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
+                                            <p><strong>Nisl ut aliquip ex ea commodo consequat.</strong><br> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim.</p>
+                                            <div class="alignright">
+                                                    <a class="button2" href="#">{% trans %}more{% endtrans %}</a>
+                                            </div>
+                                    </div>-->
+                            </div>
+                    </div>
+            </div>
+    </aside>

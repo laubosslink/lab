@@ -1,0 +1,60 @@
+<!--==============================content================================-->
+    <section id="content" class="content">
+            <div class="main">
+            <div class="container_12">
+                            <div class="wrapper p2">
+                                    <div class="grid_12">
+                                            {% if posts is not empty %}<h5 class="p0">{% trans %}featured services{% endtrans %}</h5>{% endif %}
+                                            <div id="accordion">
+                                                    {% if posts is empty %}
+                                                        <h4>{% trans %}No article{% endtrans %}</h4>
+                                                    {% else %}
+                                                        {% for item in posts %}
+                                                        <h4><a href="#">{{ item.title }}</a></h4>
+                                                        <div>
+                                                                <h5><a href="{{ path('TestBundle_post', { 'article' : item.title, '_locale' : current_lang} ) }}">{{ item.subtitle }}</a></h5>
+                                                                <div class="wrapper">
+                                                                        <figure class="img-indent"><img class="border" src="{{ asset('bundles/test/images/default-article.jpg') }}" alt="" /></figure>
+                                                                        <div class="extra-wrap">
+                                                                                <h6>{{ item.importantContent }}</h6>
+                                                                                {{ item.content }}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                            </div>
+                                    </div>
+                            </div>
+                            <div class="shadow p2"></div>
+                    <div class="wrapper">
+                                    <div class="grid_4">
+                                            <h2>{% trans %}locations{% endtrans %}</h2>
+                                            <div class="scroll-pane">
+                                                    {% if address is empty %}<p class="reg"><strong>{% trans %}no address{% endtrans %}</strong></p>{% endif %}
+                                                    {% for item in address %}
+                                                    <p class="reg">
+                                                            <strong>{{ item.address }} <br />{{ item.city }}, {{ item.zip }}</strong><br>
+                                                            {% trans %}Phone{% endtrans %}: {{ item.phone }}<br>
+                                                            {% trans %}Fax{% endtrans%}: {{ item.fax }}
+                                                    </p>
+                                                    {% endfor %}				
+                                            </div>
+                                    </div>
+                                    <div class="grid_8">
+                                            <div class="maps">
+                                                    <ul class="list-map">
+                                                            {% for lang in langs %}
+                                                                {% if lang == current_lang %}
+                                                                    <li><a class="active" href="{{ path('TestBundle_homepage', { '_locale' : lang}) }}">.{{lang}}</a></li>
+                                                                {% else %}
+                                                                    <li><a href="{{ path('TestBundle_homepage', { '_locale' : lang}) }}">.{{lang}}</a></li>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                    </ul>
+                                            </div>
+                                    </div>
+                            </div>
+            </div>
+            </div>
+    </section>	

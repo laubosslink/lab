@@ -1,0 +1,15 @@
+ <!--==============================footer=================================-->
+    <footer id="footer">
+            <div class="main">
+                    <div class="wrapper">			
+                            <ul class="list-services">
+                                    {% for key, item in footer %}
+                                        {% if item.link is not empty %}
+                                        <li><a href="{{ item.link }}"><img src="{{ asset('bundles/test/images/') }}{{ item.logo }}" alt="" title="{{ key }}" /></a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                            </ul>
+                            {% trans %}Symfony2 is great{% endtrans %} | <a href="#">Privacy Policy</a><br>
+                    </div>		
+            </div>
+    </footer>

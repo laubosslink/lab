@@ -1,0 +1,11 @@
+Computers:
+    type: entity
+    table: doctrine_computers
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: text

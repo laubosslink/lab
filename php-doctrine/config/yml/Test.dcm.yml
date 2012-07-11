@@ -1,0 +1,11 @@
+Test:
+    type: entity
+    table: tests
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+    fields:
+        description:
+            type: text

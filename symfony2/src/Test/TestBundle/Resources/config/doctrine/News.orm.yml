@@ -1,0 +1,17 @@
+Test\TestBundle\Entity\News:
+    type: entity
+    table: livera_news
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+    fields:
+        lang:
+            type: string
+        title:
+            type: string
+        auteur:
+            type: string
+        date:
+            type: date

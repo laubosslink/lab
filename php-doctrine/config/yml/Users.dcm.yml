@@ -1,0 +1,19 @@
+Users:
+    type: entity
+    table: doctrine_users
+    id:
+        id: 
+            type: integer
+            generator: 
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+    oneToMany:
+        datas:
+            targetEntity: Data
+            mappedBy: user
+    manyToMany:
+        computers:
+            targetEntity: Computers
+            

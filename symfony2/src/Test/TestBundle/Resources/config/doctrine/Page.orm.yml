@@ -1,0 +1,11 @@
+Test\TestBundle\Entity\Page:
+    type: entity
+    table: livera_pages
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+    fields:
+        title:
+            type: string

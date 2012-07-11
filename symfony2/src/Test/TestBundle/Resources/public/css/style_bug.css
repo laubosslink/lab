@@ -1,0 +1,263 @@
+@import "http://livedemo00.template-help.com/wt_37163/css/superfish.css"; @import "http://livedemo00.template-help.com/wt_37163/css/reset.css"; @import "http://livedemo00.template-help.com/wt_37163/css/grid.css"; @import "http://livedemo00.template-help.com/wt_37163/css/prettyPhoto.css"; @import "http://livedemo00.template-help.com/wt_37163/css/tm-slider.css"; @import "http://livedemo00.template-help.com/wt_37163/css/ui-accordion.css"; @import "http://livedemo00.template-help.com/wt_37163/css/jscrollpane.css"; @import url(http://fonts.googleapis.com/css?family=Oswald);
+
+/* Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
+mark, rp, rt, ruby, summary, time {display:inline;}
+
+/* Global properties ======================================================== */
+html {width:100%;}
+
+
+.bg {width:100%; background:url(http://livedemo00.template-help.com/wt_37163/images/texture.jpg) center 0 repeat;}
+.bg2 {width:100%; background:url(http://livedemo00.template-help.com/wt_37163/images/content-tail.jpg) center 0 repeat-x;}
+
+a {color:#7e6f69; outline:none;}
+a:hover {text-decoration:none;}
+
+.clear {clear:both; width:100%; line-height:0; font-size:0;}
+
+.col-1, .col-2, .col-3, .col-4 {float:left;}
+.column-1, .column-2, .column-3 {float:left;}  
+
+.wrapper {width:100%; overflow:hidden; position:relative;}
+.extra-wrap {overflow:hidden;}
+ 
+.container {width:100%;}
+
+p {margin-bottom:20px;}
+.p0 {margin-bottom:0px;}
+.p1 {margin-bottom:8px;}
+.p2 {margin-bottom:15px;}
+.p3 {margin-bottom:30px;}
+.p4 {margin-bottom:40px;}
+.p5 {margin-bottom:50px;}
+
+.reg {text-transform:uppercase;}
+
+.fleft {float:left;}
+.fright {float:right;}
+
+.alignright {text-align:right;}
+.aligncenter {text-align:center;}
+
+.title {margin-bottom:18px;}
+
+.it {font-style:italic;}
+
+.letter {letter-spacing:-1px;}
+
+.color-1 {color:#fff;}
+.color-2 {color:#000;}
+.color-3 {color:#7e6f69;}
+
+/*********************************boxes**********************************/
+.margin-bot {margin-bottom:35px;}
+
+.spacing {margin-right:20px;}
+.spacing2 {margin-right:45px;}
+.spacing3 {margin-right:60px;}
+
+.spacing-bot {margin-bottom:25px;}
+
+.indent {padding:0 0 0px 30px;}
+.indent2 {padding-left:50px;}
+.indent-bot {margin-bottom:20px;}
+.indent-bot2 {margin-bottom:30px;}
+.indent-bot3 {margin-bottom:45px;}
+
+.img-indent-bot {margin-bottom:25px;}
+.img-indent {float:left; margin:0 25px 0px 0;}	
+.img-indent2 {float:left; margin:0 13px 0px 0;}	
+.img-indent-r {float:right; margin:0 0px 0px 40px;}	
+
+.img-box {float:left; margin-bottom:20px;}	
+
+.prev-indent-bot {margin-bottom:10px;}
+.prev-indent {float:left; margin:0 10px 0px 0;}	
+.prev-box {float:left; margin-bottom:8px;}	
+
+.border {border:8px solid #f3f3f3;}
+
+.border2 {border:15px solid #cc5a6b;}
+
+.buttons a:hover {cursor:pointer;}
+
+.sf-menu li a,
+.list-1 li a,
+.list-2 li a,
+.link,
+h5 a,
+.date a,
+.date2 a,
+.button,
+.button2,
+footer a,
+.list-map li a,
+.logo {text-decoration:none;}	
+
+/*********************************header*************************************/
+header {height:147px; position:relative; z-index:999; background:url(http://livedemo00.template-help.com/wt_37163/images/tail-top.jpg) center bottom repeat-x;}
+header#header {height:577px; background:url(http://livedemo00.template-help.com/wt_37163/images/tail-top.jpg) center 0 repeat-x;}
+
+h1 {position:absolute; top:40px; left:10px;}
+.logo {display:block; width:140px; height:80px; text-indent:-5000px; background:url(http://livedemo00.template-help.com/wt_37163/images/logo.png) 0 0 no-repeat;}
+
+nav {display:block; position:absolute; right:10px; top:61px; z-index:999;}
+
+.slogan {width:420px; font-size:56px; line-height:1.196em; color:#1e1e1e; text-transform:uppercase; padding:88px 0 34px 10px; letter-spacing:-3px;}
+.slogan strong {margin-bottom:-20px; display:block;}
+
+.button-top {display:inline-block; font-size:12px; color:#fff; padding:12px 24px; background:#1e1e1e; text-transform:uppercase;}
+.button-top:hover {background:#c6475a;}
+.padding-left {padding-left:10px;}
+
+.tm-slider {
+	width:920px; height:417px; padding:10px;
+	position:absolute;
+	top:140px; 
+	left:10px;
+	z-index:1;
+	background:url(http://livedemo00.template-help.com/wt_37163/images/slider.png) 0 0 no-repeat;
+}
+
+.z-index1 {z-index:1;}
+/*********************************content*************************************/
+#content {width:100%; padding:38px 0px 30px 0px; position:relative; z-index:1;}
+#content.content {padding:0px 0px 30px 0px;}
+
+.spacer-x {display:block; width:100%; height:1px; overflow:hidden; background:#ebebeb;}
+
+.padding-top {padding:38px 0 0 0;}
+
+h2 {font-size:60px; line-height:1.2em; margin:0px 0 30px; color:#da6a44; text-transform:uppercase; font-weight:normal; font-family:'Oswald', sans-serif; letter-spacing:-3px;}
+h3 {font-size:36px; line-height:1.25em; margin:0px 0 25px; color:#7e6f69; text-transform:uppercase; font-weight:normal; font-family:'Oswald', sans-serif;}
+h4 {font-size:24px; line-height:40px; margin:0px 0 0px; color:#7e6e69; text-transform:uppercase; font-weight:normal; font-family:'Oswald', sans-serif;}
+h5 {font-size:14px; line-height:30px; margin:0px 0 20px; color:#7e6e69; text-transform:uppercase; font-weight:normal; font-family:'Oswald', sans-serif;}
+h5 a {color:#7e6e69;}
+h5 a:hover {color:#da6a44;}
+h6 {font-size:12px; margin:0px 0 0px 0;}
+
+.shadow {width:100%; height:14px; background:url(http://livedemo00.template-help.com/wt_37163/images/shadow.gif) center 0 no-repeat;}
+.maps {width:100%; height:415px; margin-top:7px; position:relative; background:url(http://livedemo00.template-help.com/wt_37163/images/map.png) 0 0 no-repeat;}
+.list-map {width:280px; overflow:hidden;}
+.list-map li {float:left; margin:0 6px 6px 0;} 
+.list-map li a {display:block; width:36px; height:36px; font-size:14px; line-height:36px; color:#fff; text-transform:uppercase; text-align:center; background:#a2928b; font-weight:normal; font-family:'Oswald', sans-serif;
+border-radius:18px;
+-moz-border-radius:18px;
+-webkit-border-radius:18px;
+-webkit-background-clip: padding-box;
+}
+.list-map li a.active, .list-map li a.active:hover {background:#6f95b5;}
+.list-map li a:hover {background:#dc6b44;}
+
+/*************Lightbox image***************/
+.lightbox-image {
+	position:relative;
+	overflow:hidden;
+	display:inline-block;
+	}
+.lightbox-image img {
+	position:relative;
+	z-index:2;
+	}
+.lightbox-image span {
+	display:block;
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background:url(http://livedemo00.template-help.com/wt_37163/images/magnify.png) no-repeat 50% 50%;
+	z-index:1;
+	}
+/************************************************/	
+
+.button {display:inline-block; font-size:11px; line-height:30px; color:#eae8e7; padding:0px 16px; font-weight:bold; text-transform:uppercase; background:#da6a44;
+border-radius:14px;
+-moz-border-radius:14px;
+-webkit-border-radius:14px;
+-webkit-background-clip: padding-box;
+}
+.button:hover {color:#fff; background:#000;}
+
+.button2 {display:inline-block; font-size:11px; line-height:30px; color:#dc6b44; padding:0px 16px; font-weight:bold; text-transform:uppercase; background:#443732;
+border-radius:14px;
+-moz-border-radius:14px;
+-webkit-border-radius:14px;
+-webkit-background-clip: padding-box;
+}
+.button2:hover {color:#fff; background:#000;}
+
+.list-1 li {font-size:12px; line-height:20px; padding-left:25px; margin-bottom:20px; position:relative; font-weight:bold; background:url(http://livedemo00.template-help.com/wt_37163/images/marker-1.gif) 0 5px no-repeat;}
+.list-1 li a {color:#7e6f69;}
+.list-1 li a:hover {color:#da6a44;}
+
+.list-2 li {font-size:12px; line-height:40px; font-weight:bold; border-bottom:1px solid #423a38;}
+.list-2 li a {color:#7e6f69;}
+.list-2 li a:hover {color:#fff;}
+.list-2 li.last-item {border:0;}
+
+.gallery {overflow:hidden;}
+.gallery li {float:left; width:183px; margin:0 20px 35px 0;}
+.gallery li a {text-decoration:none;}
+.gallery li a:hover {text-decoration:underline;}
+.gallery .last-item {margin-bottom:0;}
+
+.quotes {width:20px; height:15px; display:inline-block; background:url(http://livedemo00.template-help.com/wt_37163/images/quotes.gif) 0 0 no-repeat; margin-right:9px;}
+
+.date {float:left; width:45px; font-size:11px; line-height:20px; color:#dc6b44; text-align:right; margin-right:18px; text-transform:uppercase; font-weight:bold;}
+.date a {color:#dc6b44;} 
+.date a:hover {color:#fff;} 
+
+.date2 {float:left; width:105px; font-size:11px; line-height:20px; color:#dc6b44; text-align:right; margin-right:18px; text-transform:uppercase; font-weight:bold;}
+.date2 a {color:#dc6b44;} 
+.date2 a:hover {color:#000;} 
+
+.link:hover {text-decoration:underline;} 
+
+.link-1 {display:inline-block; color:#dc6b44; text-decoration:none; font-weight:bold;}
+.link-1:hover {color:#000;} 
+
+dl span {float:left; width:90px;}
+dl dt {padding-bottom:20px;}
+
+.map iframe {width:352px; height:262px;}
+
+#form1 fieldset{display:block; width:540px;}
+#form1 {width:540px;}
+#form1 label {display:block; height:55px; position:relative;}
+#form1 label.message {height:auto;}
+#form1 input {width:358px; font-size:12px; color:#7e6f69; padding:9px 10px; margin:0; border:1px solid #7e6f69; outline:none; resize:none; font-family:Tahoma, Geneva, sans-serif; background:url(http://livedemo00.template-help.com/wt_37163/images/input.png) 0 0 repeat;}
+#form1 textarea {height:195px; overflow:auto; width:518px; font-size:12px; color:#7e6f69; padding:9px 10px; margin:0; border:1px solid #7e6f69; outline:none; resize:none; font-family:Tahoma, Geneva, sans-serif; background:url(http://livedemo00.template-help.com/wt_37163/images/input.png) 0 0 repeat;}
+#form1 .empty, #form1 .error {display:none; color:#f00; font-size:11px; line-height:1.2em; position:absolute; top:10px; left:390px;}
+#form1 label.message .empty, #form1 label.message .error {left:0; top:225px;}
+#form1 .success {display:none; color:#000; font-size:18px; line-height:1.2em; text-align:center; padding:10px; margin-bottom:20px; border:1px solid #7e6f69; background:#dedddb;}
+
+.buttons {padding-top:20px; text-align:right; overflow:hidden;}
+.buttons a {margin-left:20px;}
+
+/*********************************aside*************************************/
+aside {display:block; width:100%; color:#7e6f69; padding:45px 0px 20px 0px; position:relative; background:url(http://livedemo00.template-help.com/wt_37163/images/aside-tail.jpg) center 0 repeat-x #231c19;}
+aside h3 {color:#cac6c2;}
+
+/****************************footer************************/
+footer {padding:30px 0px; color:#5d4e49; text-align:right; text-transform:uppercase; position:relative; background:url(http://livedemo00.template-help.com/wt_37163/images/footer-tail.jpg) center 0 repeat-x;}
+footer div {font-size:10px;}
+footer a {color:#5d4e49;}
+footer a:hover {color:#fff;}
+footer#footer {background:url(http://livedemo00.template-help.com/wt_37163/images/footer-tail.jpg) center -10px repeat-x} 
+
+.list-services {float:left; margin-right:10px;}
+.list-services li {float:left; margin:0 0 0 7px; position:relative; width:33px; height:32px; cursor:pointer;}
+
+/**********tooltip**************/
+#tooltip {
+position: absolute;
+z-index: 999; 
+border: 1px solid #fff;
+background-color: #e55d2f;
+color: #fff;
+padding: 5px; letter-spacing:2px;
+}
+#tooltip span {display:block; font-size:12px; margin:0; font-weight:normal; color:#fff; font-family:"Courier New", Courier, monospace;}
+

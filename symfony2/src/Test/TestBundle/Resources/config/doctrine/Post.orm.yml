@@ -1,0 +1,21 @@
+Test\TestBundle\Entity\Post:
+    type: entity
+    table: livera_posts
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+    fields:
+        lang:
+            type: string
+        title:
+            type: string
+        subtitle:
+            type: string
+        important_content:
+            type: string
+        content:
+            type: text
+        date:
+            type: date

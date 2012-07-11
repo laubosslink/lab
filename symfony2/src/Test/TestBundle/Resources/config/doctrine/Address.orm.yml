@@ -1,0 +1,21 @@
+Test\TestBundle\Entity\Address:
+    type: entity
+    table: livera_address
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+    fields:
+        city:
+            type: string
+        address:
+            type: string
+        zip:
+            type: string
+        lang:
+            type: string
+        phone:
+            type: string
+        fax:
+            type: string
