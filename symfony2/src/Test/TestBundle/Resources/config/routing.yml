@@ -1,15 +1,20 @@
 TestBundle_homepage:
-    pattern: /livera/{_locale}
+    pattern: /{_locale}
     defaults: { _controller: TestBundle:Livera:lang, _locale:fr }
     requirements:
         _locale: fr|en
 
 TestBundle_post:
-    pattern: /livera/{_locale}/post/{article}
+    pattern: /{_locale}/post/{article}
     defaults: { _controller: TestBundle:Livera:post, _locale:fr }
     requirements:
         _locale: fr|en
         
+TestBundle_address:
+    resource: "@TestBundle/Resources/config/routing/address.yml"
+    prefix:   /address
+    
 TestBundle_news:
     resource: "@TestBundle/Resources/config/routing/news.yml"
     prefix:   /news
+        

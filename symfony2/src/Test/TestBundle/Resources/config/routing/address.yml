@@ -1,0 +1,11 @@
+address:
+    pattern:  /{id}
+    defaults: { _controller: "TestBundle:Address:index", id:1 }
+
+address_add:
+    pattern:  /add/
+    defaults: { _controller: "TestBundle:Address:add" }
+
+address_create:
+    pattern:  /create/
+    defaults: { _controller:  "TestBundle:Address:create" }
