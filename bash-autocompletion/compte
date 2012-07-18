@@ -21,7 +21,7 @@ _compte() {
          espagnol)
            choix="un dos tres"
            ;;
-         *)
+         *) #Doesn't run
            choix="késako"
            ;;
        esac
