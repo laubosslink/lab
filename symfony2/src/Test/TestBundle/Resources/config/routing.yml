@@ -17,4 +17,8 @@ TestBundle_address:
 TestBundle_news:
     resource: "@TestBundle/Resources/config/routing/news.yml"
     prefix:   /news
+    
+TestBundle_user:
+    resource: "@TestBundle/Resources/config/routing/user.php"
+    prefix:   /user
         

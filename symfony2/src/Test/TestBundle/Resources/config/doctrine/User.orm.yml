@@ -1,0 +1,10 @@
+Test\TestBundle\Entity\User:
+    type: entity
+    table: livera_users
+    id:
+        username:
+            type: string
+    oneToMany:
+        addresses:
+            targetEntity: Address
+            mappedBy: address

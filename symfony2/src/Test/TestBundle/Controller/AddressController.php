@@ -45,10 +45,11 @@ class AddressController extends Controller
         $request = $this->getRequest();
         $form    = $this->createForm(new AddressType(), $entity);
         $form->bindRequest($request);
-
+        
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $em->persist($entity->getUser());
             $em->flush();
 
             //return $this->redirect($this->generateUrl('news_show', array('id' => $entity->getId())));

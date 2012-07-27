@@ -19,3 +19,11 @@ Test\TestBundle\Entity\Address:
             type: string
         fax:
             type: string
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: addresses
+            joinColumn:
+                name: theusername
+                referencedColumnName: username
+            cascade: ["persist", "merge"]

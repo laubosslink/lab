@@ -240,4 +240,31 @@ class Address
     {
         return $this->city;
     }
+    /**
+     * @var Test\TestBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param Test\TestBundle\Entity\User $user
+     * @return Address
+     */
+    public function setUser(\Test\TestBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return Test\TestBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

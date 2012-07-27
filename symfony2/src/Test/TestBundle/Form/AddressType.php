@@ -17,6 +17,7 @@ class AddressType extends AbstractType
             ->add('lang')
             ->add('phone')
             ->add('fax')
+            ->add('user', new UserType)
         ;
     }
 
