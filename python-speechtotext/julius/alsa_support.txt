@@ -1,0 +1,15 @@
+The command:
+ "adinrec -input asla test.wav"
+
+results in:
+ ERROR: m_options: "-input alsa": ALSA support is not built-in
+ Error reading arguments
+
+This will be fixed if libasound2-dev is added as a build dependency.
+
+For example, julius can be rebuilt in the following way, and adinrec will have alsa support:
+
+sudo apt-get build-dep julius
+ sudo apt-get install libasound2-dev
+ apt-get source julius
+ cd julius-4.1.5

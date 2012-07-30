@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
 
+# Dans /etc/speech-dispatcher/modules/espeak-generic.conf (si mbrola):
+#AddVoice        "fr"    "MALE1"         "mb-fr1"
+
 import urllib2
 
 import xml.etree.ElementTree as xml
+import speechd
 
 def getWeather(city):
 
@@ -54,17 +58,30 @@ weather, humidity, wind, temp, city, temp_max, futur_weather = getWeather(city)
 
 import subprocess
 
+
 def parler(phrase):
+    spk = speechd.SSIPClient('test')
+    spk.set_punctuation(speechd.PunctuationMode.SOME)
+    #spk = speechd.Speaker('try')
+    #spk.set_language('fr')
+    #spk.set_voice('MALE1')
+    #spk.set_synthesis_voice('scope', scope=('fr', 'MALE1', 'fr'))
+    #spk.set_pitch(-50) # propre
+    #spk.set_rate(-10)    
+    #spk.speak(phrase)
     subprocess.call(["espeak", "-v", "mb/mb-fr1", phrase], stderr=open('/dev/null', 'r'))
 
 def listen():
     subprocess.call(["./record.sh"], shell=True)
     output = subprocess.Popen(['./decode.sh'], shell=True, stdout=subprocess.PIPE)
     return output.stdout.read()
+    
 
-parler("Est-ce que tu veux la météo de Lille, Laurent ?")
+parler("La température à " + city + ", est de " + temp + " degrés, avec une humidité de " + humidity + " pourcent")
+exit()
+
+parler("Est-ce que tu veux la météo de " + city + ", Alexandre ?")
 reponse = listen()
-
 if "yes" in reponse.lower():
  parler("Attend, je vais te la donner !")
  parler("La température à Lille est de " + temp + " avec une humidité de " + humidity + " pourcent")
@@ -73,10 +90,3 @@ else:
 
 
 
-parler("Tu veux faire l'amour ?")
-reponse = listen()
-
-if "yes" in reponse.lower():
- parler("Il y a un trou juste dérrière")
-else:
- parler("Tant pis")

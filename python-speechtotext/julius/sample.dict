@@ -4,14 +4,14 @@
 2	[CALL]	k ao l
 2	[GET]	g eh t
 3	[ME]	m iy
-4	[DIAL]	d ay ax l
+4	[NUMBER]	n ax m b r
 5	[KENNETH]	k eh n ix th
 5	[KEN]	k eh n
 6	[MACDOUGALL]	m ax k d uw g ax l
 7	[MACLEAN]	m ax k l ey n
 8	[STEVEN]	s t iy v ax n
 8	[STEVE]	s t iy v
-9	[YOUNG]	eh l ow
+9	[YOUNG]	y ah ng
 10	[FIVE]	f ay v
 10	[FOUR]	f ao r
 10	[NINE]	n ay n
@@ -23,7 +23,10 @@
 10	[THREE]	th r iy
 10	[TWO]	t uw
 10	[ZERO(2)]	z ih r ow
-11	[YES]	iy eh s
-12	[NO]	n ow
-13	[WORLD]	w er l d
-14	[LAURENT]	s t iy
+11	[HELLO]	eh l ow
+12	[I]	iy
+13	[SAY]	s ay
+14	[YES]	iy eh s
+15	[NO]	n ow
+16	[WORLD]	w er l d
+17	[LAURENT]	l ow n t

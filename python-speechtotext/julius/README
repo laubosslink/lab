@@ -1,0 +1,6 @@
+Pour ajouter/enlever il faut modifier :
+
+le .grammar (qui contient la grammaire)
+le .voca (qui contient la liste de mot du vocabulaire)
+
+
