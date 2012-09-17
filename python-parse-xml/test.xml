@@ -1,0 +1,30 @@
+<quil>
+
+    <personne>
+
+	<hello m="world">My World</hello>
+
+        <nom>Durant</nom>
+
+        <prenom>Stephan</prenom>
+
+	<adresse>
+
+		<ville postal="684500">Bruxelles</ville>
+		<ville postal="546450">Paris</ville>
+
+	</adresse>
+
+    </personne>
+
+    <personne>
+
+        <nom>Dupont</nom>
+
+        <prenom>Henri</prenom>
+
+	<adresse />
+
+    </personne>
+
+</quil>
