@@ -56,6 +56,8 @@ def getWeather(city):
 city="lille"
 weather, humidity, wind, temp, city, temp_max, futur_weather = getWeather(city)
 
+temp = 25;
+
 import subprocess
 
 
