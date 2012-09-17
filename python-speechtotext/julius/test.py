@@ -79,8 +79,8 @@ def listen():
     return output.stdout.read()
     
 
-parler("La température à " + city + ", est de " + temp + " degrés, avec une humidité de " + humidity + " pourcent")
-exit()
+#parler("La température à " + city + ", est de " + temp + " degrés, avec une humidité de " + humidity + " pourcent")
+#exit()
 
 parler("Est-ce que tu veux la météo de " + city + ", Alexandre ?")
 reponse = listen()
