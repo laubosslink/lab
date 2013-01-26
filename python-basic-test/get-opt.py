@@ -38,8 +38,9 @@ parser.add_option("-n", type="int", dest="num", help="My number ! ", action="sto
 parser.add_option("--secret", help=SUPPRESS_HELP)
 
 debug = OptionGroup(parser, "Debug Options")
+debug.add_option("--debug", help="DEBUG", action="store_true", dest="debug", default=False)
 debug.add_option("-d", help="DEBUG", action="store_true", dest="debug", default=False)
-
+	
 parser.add_option_group(debug)
 
 # A mettre apres les add_options

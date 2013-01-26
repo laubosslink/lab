@@ -45,7 +45,7 @@ sub beep_beep() {
 	}
 }
 
-Irssi::settings_add_str("lookandfeel", "beep_cmd", "play ~/.irssi/scripts/beep_beep.wav > /dev/null &");
+Irssi::settings_add_str("lookandfeel", "beep_cmd", "play /media/files/Multimedia/Musiques/Relient-K/01-Angels-We-Have-Heard-On-High.mp3 > /dev/null &");
 Irssi::settings_add_int("lookandfeel", "beep_flood", 250);
 Irssi::signal_add("beep", "beep_beep");
 

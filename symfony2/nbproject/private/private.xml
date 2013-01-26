@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Controller/LiveraController.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Controller/AddressController.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Form/AddressType.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Controller/NewsController.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/config/routing.yml</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/config/routing/address.yml</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/config/doctrine/Address.orm.yml</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/config/doctrine/User.orm.yml</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/config/routing/user.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Entity/Address.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Entity/User.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Form/UserType.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/views/Address/index.html.twig</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Controller/UserController.php</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/views/User/index.html.twig</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/views/User/new.html.twig</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/views/User/edit.html.twig</file>
-        <file>file:/media/files/S-lbl/Lab/symfony2/src/Test/TestBundle/Resources/translations/messages.fr.yml</file>
-    </open-files>
 </project-private>
