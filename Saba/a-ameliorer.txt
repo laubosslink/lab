@@ -1,2 +1,0 @@
-On ne sait pas quand la connexion securisé/crypté est activé entre les deux CPL ? -> mise en place d'un LED.
-Si on les déconnectes/reconnectes, la sécurité se désactive ou elle est toujours en place ?
