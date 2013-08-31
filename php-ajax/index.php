@@ -11,7 +11,8 @@ include "lib.php";
 <html
 	<head>
 		<title>Test ajax lib</title>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="jquery-ui.js"></script>
 		<script type="text/javascript" src="basic.js"></script>
 	</head>
@@ -45,19 +46,19 @@ include "lib.php";
 		<br />
 		
 		
-		<input type="checkbox" name="index[1]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
+		<input type="checkbox" name="index[1]" value="lol" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		<input type="checkbox" name="index[2]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		<input type="checkbox" name="index[3]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		<input type="checkbox" name="index[7]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		<input type="checkbox" name="index[10]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		Response : <div id="checkbox2_response"></div><br />
 		
-		<form method="post" action="" data-call-ajax="<?php call_ajax_method("checkbox2_form"); ?>">
-		<input type="checkbox" name="index[1]" /><br />
-		<input type="checkbox" name="index[2]" /><br />
-		<input type="checkbox" name="index[3]" /><br />
-		<input type="checkbox" name="index[7]" /><br />
-		<input type="checkbox" name="index[10]" /><br />
+		<form method="post" data-call-ajax="<?php call_ajax_method("checkbox2_form"); ?>">
+		<input type="checkbox" name="index2[1]" /><br />
+		<input type="checkbox" name="index2[2]" /><br />
+		<input type="checkbox" name="index2[3]" /><br />
+		<input type="checkbox" name="index2[7]" /><br />
+		<input type="checkbox" name="index2[10]" /><br />
 		<input type="submit" /><br />
 		Response : <div id="checkbox2_form_response"></div><br />
 		</form>
@@ -74,6 +75,5 @@ include "lib.php";
 		Response #2 : <div id="ip_form_response_2"></div><br />
 		<input type="submit" /><br />
 		</form>
-		
 	</body>
 </html>
