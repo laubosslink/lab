@@ -2,12 +2,20 @@
 
 include("lib.php");
 
+function call_in_popup(){
+		$ajax = new Ajax();
+		
+		$ajax->set_element("call in popup", "#call_in_response");
+		
+		$ajax->load_view();
+}
+
 function call_from_popup(){
 	$ajax = new Ajax();
 	
 	//$ajax->popup_add("Yes we do it !");
 	
-	$ajax->add_element("You click on Call", "#response_popup_ajax");
+	$ajax->add_element('Add allo <br />', "#response_popup_ajax");
 	
 	$ajax->load_view();
 	
@@ -18,8 +26,8 @@ function popup_ajax(){
 	
 	//$ajax->add_element('<div id="out_dialog">Hello !</div>', "#response_popup_ajax");
 	
-	$ajax->popup_add('<form data-call-ajax="action.php?call=call_from_popup">
-<select name="cars">
+	$ajax->popup_add('<form method="post" data-call-ajax="action.php?call=call_from_popup">
+<select name="cars" data-call-ajax="action.php?call=call_in_popup">
   <option value="volvo">Volvo XC90</option>
   <option value="saab">Saab 95</option>
   <option value="mercedes">Mercedes SLK</option>
@@ -37,6 +45,12 @@ function popup_ajax(){
 				), 
 				'Close' => array(
 					'action' => 'close'
+				),
+				'IDB' => array(
+					'id' => 'test_external_ajax'
+				),
+				'CallExtFunc' => array(
+					'action' => 'test_external_ajax'
 				)
 			)
 		)

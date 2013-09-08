@@ -1,6 +1,7 @@
 /*
  * This script require : jquery, jquery-ui
  * version 2 (with issue)
+ * todo : effect like fadein, but after good work
  */
 
 var DEFAULT_DIALOG_ID = "out_dialog";
@@ -221,9 +222,11 @@ function set_popup_buttons(buttons){
 		if(button.action == 'close'){
 			button.action = function(){
 				$(this).dialog("close");
-			}
+			};
 		} else if(button.action == 'call-ajax'){
 			console.log("out : " + button.link);
+			
+			$("#"+DEFAULT_DIALOG_ID).append('<input type="hidden" name="'+DEFAULT_DIALOG_ID+'_link" value="'+button.link+'" />');
 			
 			button.action = function(){
 				
@@ -231,7 +234,7 @@ function set_popup_buttons(buttons){
 				
 				$.ajax({
 					type: "POST",
-					url: button.link, // DONT FIND button object... please thinking about search the link in DOM /!\
+					url: $('input[name="'+DEFAULT_DIALOG_ID+'_link"]').val(), // DONT FIND button object... please thinking about search the link in DOM /!
 					//data: $("#"+DEFAULT_DIALOG_ID).data(),
 					async: false,
 					success: function(result) {
@@ -243,12 +246,20 @@ function set_popup_buttons(buttons){
 					}
 				});
 			}
+		} else {
+			if(button.action){ /* just an idea ! */
+				button.action = function(){
+					window[button.action]();
+					//eval(button.action + '();');
+				};
+			}
 		}
 		
-		buttons_options.push( { text:button.text, click:button.action } );
+		buttons_options.push( { text:button.text, click:button.action, id:button.id } );
 	}
 	
-	$("#" + DEFAULT_DIALOG_ID).dialog("option", "buttons", buttons_options);	
+	$("#" + DEFAULT_DIALOG_ID).dialog("option", "buttons", buttons_options);
+	
 }
 
 /**

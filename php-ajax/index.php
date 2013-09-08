@@ -14,9 +14,13 @@ include "lib.php";
 		<link rel="stylesheet" type="text/css" href="jquery-ui.css">
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="jquery-ui.js"></script>
+		
+		<script type="text/javascript" src="ext.js"></script>
+		
 		<script type="text/javascript" src="basic.js"></script>
 	</head>
 	<body>
+		<p><span id="call_in_response"></span></p>
 		<table border="1">
 			<tr>
 				<th>head 1</th>

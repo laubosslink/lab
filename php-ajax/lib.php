@@ -25,6 +25,7 @@ class Ajax {
 						}
 						
 						$array_button_options = array(
+							'id' => $button_options['id'],
 							'text' => $button_text,
 							'action' => $button_options['action'],
 							'link' => $button_options['link']
@@ -34,7 +35,7 @@ class Ajax {
 					}
 					
 					$this->add_action('set_popup_buttons', $buttons);
-				}
+				} 
 			}
 		}
 	}
