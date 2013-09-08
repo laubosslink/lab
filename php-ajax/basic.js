@@ -1,5 +1,6 @@
 /*
  * This script require : jquery, jquery-ui
+ * version 2 (with issue)
  */
 
 var DEFAULT_DIALOG_ID = "out_dialog";
@@ -33,7 +34,6 @@ $(document).ready(function() {
                 type: "POST",
                 url: $current_link.attr(DEFAULT_ATTR_CATCH),
                 data: $current_link.data() + supp,
-                async: false,
                 success: function(result) {
                     parse_result(result);
                 },
@@ -45,6 +45,28 @@ $(document).ready(function() {
             });
         }
     });
+
+	$('button,input[type="button"]').on("click", function(event){
+		 if ($(this).attr(DEFAULT_ATTR_CATCH)) {
+		    event.preventDefault();
+
+            $current_link = $(this);
+
+            $.ajax({
+                type: "POST",
+                url: $current_link.attr(DEFAULT_ATTR_CATCH),
+                data: $current_link.data(),
+                success: function(result) {
+                    parse_result(result);
+                },
+                error: function() {
+                    alert("There is problem with button click.");
+                    console.log(result);
+                    event.preventDefault();
+                }
+            });
+        }
+	});
 
     $('form').on('submit', function(event) {
         if ($(this).attr(DEFAULT_ATTR_CATCH)) {
@@ -87,7 +109,7 @@ $(document).ready(function() {
     });
     
         
-	//TODO click on td table
+	//TODO click on td table and <button> new on html5..
     $(document).on('click', "tr,td,a", function(event) {
         if ($(this).attr(DEFAULT_ATTR_CATCH)) {
             event.preventDefault();
@@ -143,32 +165,90 @@ function parse_result(result_from_server) {
 
         for (key in result)
         {
-            data = result[key];
+            action = result[key].action;
+            a = result[key].array_values;
 
-            if (data.action == "remove_element")
+            if (action == "remove_element")
             {
-                remove_element(data.element, data.id, data.selector_id);
-            } else if (data.action == "add_element")
+                remove_element(a.element, a.id, a.selector_id);
+            } else if (action == "add_element")
             {
-                add_element(data.element, data.selector);
-            } else if (data.action == "set_element")
+                add_element(a.element, a.selector);
+            } else if (action == "set_element")
             {
-                set_element(data.element, data.selector);
-            } else if (data.action == "disable_form")
+                set_element(a.element, a.selector);
+            } else if (action == "disable_form")
             {
-                disable_form(data.selector);
-            } else if (data.action == "enable_form")
+                disable_form(a.selector);
+            } else if (action == "enable_form")
             {
-                enable_form(data.selector);
-            } else if (data.action == "popup") {
-                popup_values += data.html;
+                enable_form(a.selector);
+            } else if (action == "popup") 
+            {
+                popup_values += a.html;
+            } else if(action == "debug")
+            {
+                open_dialog(a.message);
             }
         }
 
         if (popup_values) {
             open_dialog(popup_values);
         }
+        
+        for (key in result)
+        {
+            action = result[key].action;
+            a = result[key].array_values;
+
+			if(action == 'set_popup_buttons')
+			{
+					set_popup_buttons(a);
+			}
+		}
     }
+}
+
+/**
+ * Set all the buttons of DEFAULT_DIALOG_ID popup
+ */
+function set_popup_buttons(buttons){
+	var buttons_options = new Array();
+	
+	for(key in buttons){
+		button = buttons[key];
+		
+		if(button.action == 'close'){
+			button.action = function(){
+				$(this).dialog("close");
+			}
+		} else if(button.action == 'call-ajax'){
+			console.log("out : " + button.link);
+			
+			button.action = function(){
+				
+				console.log("in : " + button.link);
+				
+				$.ajax({
+					type: "POST",
+					url: button.link, // DONT FIND button object... please thinking about search the link in DOM /!\
+					//data: $("#"+DEFAULT_DIALOG_ID).data(),
+					async: false,
+					success: function(result) {
+						parse_result(result);
+					},
+					error: function() {
+						alert("There is problem call-ajax from popup.");
+						console.log(result);
+					}
+				});
+			}
+		}
+		
+		buttons_options.push( { text:button.text, click:button.action } );
+	}
+	
+	$("#" + DEFAULT_DIALOG_ID).dialog("option", "buttons", buttons_options);	
 }
 
 /**
@@ -210,7 +290,7 @@ function remove_elements(selector, id, selector_id) {
  * @param {string} selector
  */
 function disable_form(selector) {
-    $(selector).closest('form').find('input,textarea,select').prop('disabled', true);
+    $(selector).closest('form').find('input,textarea,select,button').prop('disabled', true);
 }
 
 /**
@@ -218,7 +298,7 @@ function disable_form(selector) {
  * @param {string} selector 
  */
 function enable_form(selector) {
-    $(selector).closest('form').find('input,textarea,select').prop('disabled', false);
+    $(selector).closest('form').find('input,textarea,select,button').prop('disabled', false);
 }
 
 /**
@@ -227,9 +307,17 @@ function enable_form(selector) {
  */
 function register_dialog(selector) {
     $(selector).dialog({
-        autoOpen: true,
+        autoOpen: false,
         width: 600,
         title: "Dialog",
+        show: {
+			effect: "fade",
+			duration: 1000
+		},
+		hide: {
+			effect: "fade",
+			duration: 1000
+		},
         modal: true
     });
 }

@@ -17,6 +17,49 @@ include "lib.php";
 		<script type="text/javascript" src="basic.js"></script>
 	</head>
 	<body>
+		<table border="1">
+			<tr>
+				<th>head 1</th>
+				<th>head 2</th>
+				<th>copy</th>
+				<th>delete</th>
+			</tr>
+			<tr>
+				<td>Hi 1</td>
+				<td>Hi 2</td>
+				<td>-></td>
+				<td>x</td>
+			</tr>
+			<tr>
+				<td>Hi 3</td>
+				<td>Hi 4</td>
+				<td>-></td>
+				<td>x</td>
+			</tr>
+		</table>
+		
+		<table border="1" style="float: right;">
+			<tr>
+				<th>head 1</th>
+				<th>head 2</th>
+				<th>delete</th>
+			</tr>
+		</table>
+		
+		<br />
+		<br />
+		
+		
+		<button type="button" name="hello" data-call-ajax="<?php call_ajax_method("popup_ajax"); ?>">Ajax button</button>
+		<input type="button" name="hello" value="ajax-input" data-call-ajax="<?php call_ajax_method("popup_ajax"); ?>"/><br />
+		<span id="response_popup_ajax"></span>
+		<br />
+		
+		<button type="button" name="hello" data-call-ajax="<?php call_ajax_method("click"); ?>">Button</button>
+		<input type="button" name="hello" value="Click !" data-call-ajax="<?php call_ajax_method("click"); ?>"/><br />
+		<span id="click_response"></span>
+		<br />
+		
 		<br />
 		You need ? 
 		Yes <input type="radio" name="need" value="yes" data-call-ajax="<?php call_ajax_method("radio"); ?>"/>
@@ -75,5 +118,6 @@ include "lib.php";
 		Response #2 : <div id="ip_form_response_2"></div><br />
 		<input type="submit" /><br />
 		</form>
+		
 	</body>
 </html>
