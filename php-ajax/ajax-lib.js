@@ -1,36 +1,74 @@
 /*
  * This script require : jquery, jquery-ui
- * version 2 (with issue)
- * todo : effect like fadein, but after good work
+ * Version 3 (with issue)
+ * TODO : effect like fadein, but after good work
  */
 
 var DEFAULT_DIALOG_ID = "out_dialog";
 var DEFAULT_ATTR_CATCH = "data-call-ajax";
+var DEFAULT_AREA_CATCH = "data-call-area-element";
+var DEBUG=true;
 
 $(document).ready(function() {
 
     // If a <div> with default dialog id exist, we open the dialog
     register_dialog('#' + DEFAULT_DIALOG_ID);
 
+	/* special method init */
+	var init_element = $('input[type="hidden"][name="'+DEFAULT_ATTR_CATCH+'-init"]');
+	if(init_element.length != 0){
+		$.ajax({
+			type: "POST",
+			url: init_element.attr(DEFAULT_ATTR_CATCH),
+			data: init_element.data(),
+			success: function(result) {
+				parse_result(result);
+			},
+			error: function() {
+				alert("There is problem with init method.");
+				console.log(result);
+				event.preventDefault();
+			}
+		});
+	}
+
     $("input").change(function(event) {
         if ($(this).attr(DEFAULT_ATTR_CATCH)) {
+			
             event.preventDefault();
 
-            $current_link = $(this);
-
-            var attr = $current_link.attr('name').toString().split('[');
-            var supp;
-
-            if (this.type == 'checkbox') {
-                $("input[name*='" + attr[0] + "']").each(function() {
-                    if (this.checked) {
-                        supp += "&" + this.name + "=" + this.value;
-                    }
-                });
-            } else {
-                supp = "&" + this.name + "=" + this.value;
-            }
-
+			$current_link = $(this);
+			var attr = $current_link.attr('name').toString().split('[');
+			var supp;
+			
+			/* If the current input change is an array, there will be surely other data with same name
+			 * we find all theses datas and add it */
+			if (attr.length > 1) {
+				if(this.type == 'checkbox'){
+					$("input[name*='" + attr[0] + "']").each(function() {
+						if(this.checked){
+							supp += "&" + this.name + "=" + this.value;
+						}
+					});
+				} else if(this.type != 'checkbox'){					
+					limit_area_element = $current_link.attr(DEFAULT_AREA_CATCH);
+					
+					if(limit_area_element == null && DEBUG)
+						debug_msg("you seems to use " + DEFAULT_ATTR_CATCH + " with an array name, it's advise to use '" + DEFAULT_AREA_CATCH + "'");
+					
+					limit_area = $current_link.closest(limit_area_element);
+					
+					if(limit_area.length == 0 && DEBUG)
+						debug_msg("we dont find limit '"+limit_area_element+"' for input change name='" + attr[0] + "[...]'");
+					
+					limit_area.find("input[name*='" + attr[0] + "']").each(function() {
+						supp += "&" + this.name + "=" + this.value;
+					});
+				}
+			} else {
+				supp = "&" + this.name + "=" + this.value;
+			}
+		
             $.ajax({
                 type: "POST",
                 url: $current_link.attr(DEFAULT_ATTR_CATCH),
@@ -39,7 +77,7 @@ $(document).ready(function() {
                     parse_result(result);
                 },
                 error: function() {
-                    alert("There is problem with input change.");
+					alert("There is problem with input change.");
                     console.log(result);
                     event.preventDefault();
                 }
@@ -84,9 +122,16 @@ $(document).ready(function() {
                 if (((String)(post)).indexOf('%') !== -1) {
                     post = ((String)(posts[i]).split("%"))[0];
                 }
-
-                console.log($('label[for="' + post + '"]').html());
-                labels += "&label_" + post + "=" + $('label[for="' + post + '"]').html();
+				
+				current_label = $('label[for="' + post + '"]').html();
+				
+				if(current_label)
+				{
+					labels += "&label_" + post + "=" + current_label;
+				} else if(DEBUG)
+				{
+					debug_msg("No label for name='" + post + "'");
+				}
             }
 
             $.ajax({
@@ -187,7 +232,10 @@ function parse_result(result_from_server) {
             } else if (action == "popup") 
             {
                 popup_values += a.html;
-            } else if(action == "debug")
+            } else if(action == "call_jquery_method")
+            {
+				call_jquery_method(a.method, a.selector); 
+			} else if(action == "debug")
             {
                 open_dialog(a.message);
             }
@@ -195,7 +243,7 @@ function parse_result(result_from_server) {
 
         if (popup_values) {
             open_dialog(popup_values);
-        }
+        }2
         
         for (key in result)
         {
@@ -208,6 +256,15 @@ function parse_result(result_from_server) {
 			}
 		}
     }
+}
+
+/**
+ * Permit to call a method of jquery based on selector
+ * @params {string} method
+ * @params {string} selector
+ * */
+function call_jquery_method(method, selector){
+	$(selector)[method]();
 }
 
 /**
@@ -336,7 +393,7 @@ function register_dialog(selector) {
 /**
  * Permit to know if the string could be parse with JSON
  * @param {type} str The string 
- * @returns {Boolean} True if it could be parse
+ * @returns {Boolean} True if it could be parse2
  */
 function is_json_string(str) {
 
@@ -363,4 +420,11 @@ function open_dialog(html) {
     $("body").append('<div id="' + DEFAULT_DIALOG_ID + '">' + html + "</div>");
     register_dialog('#' + DEFAULT_DIALOG_ID);
     $('#' + DEFAULT_DIALOG_ID).dialog("open");
+}
+
+/**
+ * Permit to send debug msg to console.log
+ * */
+function debug_msg(msg) {
+	console.log("DEBUG : " + msg);
 }

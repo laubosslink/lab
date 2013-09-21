@@ -6,6 +6,8 @@ function call_ajax_method($name){
 
 include "lib.php";
 
+//call_register_element();
+
 ?>
 
 <html
@@ -17,9 +19,12 @@ include "lib.php";
 		
 		<script type="text/javascript" src="ext.js"></script>
 		
-		<script type="text/javascript" src="basic.js"></script>
+		<script type="text/javascript" src="ajax-lib.js"></script>
 	</head>
 	<body>
+		
+		<input type="hidden" name="data-call-ajax-init" data-call-ajax="<?php call_ajax_method("call_register_element"); ?>" />
+		
 		<p><span id="call_in_response"></span></p>
 		<table border="1">
 			<tr>
@@ -93,7 +98,7 @@ include "lib.php";
 		<br />
 		
 		
-		<input type="checkbox" name="index[1]" value="lol" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
+		<input type="checkbox" name="index[1]" value="lol" /><br />
 		<input type="checkbox" name="index[2]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		<input type="checkbox" name="index[3]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
 		<input type="checkbox" name="index[7]" data-call-ajax="<?php call_ajax_method("checkbox2"); ?>"/><br />
@@ -110,11 +115,16 @@ include "lib.php";
 		Response : <div id="checkbox2_form_response"></div><br />
 		</form>
 		
-		<form data-call-ajax="<?php call_ajax_method("ip"); ?>">
-		<input type="number" name="ip" data-call-ajax="<?php call_ajax_method("ip"); ?>" /><br />
-		Response #1 : <div id="ip_response_1"></div><br />
-		Response #2 : <div id="ip_response_2"></div><br />
-		</form>
+		<div id="area-ip-change">
+			<input type="number" name="ip[0]" data-call-ajax="<?php call_ajax_method("ip"); ?>" data-call-area-element="#area-ip-change" />.
+			<input type="number" name="ip[1]" data-call-ajax="<?php call_ajax_method("ip"); ?>" data-call-area-element="#area-ip-change" /><br />
+			Response #1 : <div id="ip_response_1"></div><br />
+			Response #2 : <div id="ip_response_2"></div><br />
+		</div>
+		
+		<input type="number" name="ip_no_array" data-call-ajax="<?php call_ajax_method("ip_no_array"); ?>" /><br />
+		Response #1 : <div id="ip_response_1_n"></div><br />
+		Response #2 : <div id="ip_response_2_n"></div><br />
 		
 		<form method="post" data-call-ajax="<?php call_ajax_method("ip_form"); ?>">
 		<input type="text" name="ip_form" /><br />
@@ -123,5 +133,15 @@ include "lib.php";
 		<input type="submit" /><br />
 		</form>
 		
+		<button type="button" name="hello" data-call-ajax="<?php call_ajax_method("call_register_element"); ?>">Open</button><button type="button" name="hello" data-call-ajax="<?php call_ajax_method("call_hidden_element"); ?>">Hidden</button><br />
+		
+		    <div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Network Devices</a></li>
+				<li><a href="#tabs-2">Contacts</a></li>
+			</ul>
+				<div id="tabs-1">YES !</div>
+				<div id="tabs-2">We are register...</div>
+			</div>
 	</body>
 </html>

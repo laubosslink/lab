@@ -2,6 +2,23 @@
 
 include("lib.php");
 
+function call_hidden_element(){
+	$ajax = new Ajax();
+	
+	$ajax->call_jquery_method("hide", "#tabs");
+	
+	$ajax->load_view();
+}
+
+function call_register_element(){
+	$ajax = new Ajax();
+	
+	$ajax->call_jquery_method("tabs", "#tabs");
+	$ajax->call_jquery_method("show", "#tabs");
+	
+	$ajax->load_view();
+}
+
 function call_in_popup(){
 		$ajax = new Ajax();
 		
@@ -129,13 +146,27 @@ function checkbox2_form(){
 function ip(){
 	$ajax = new Ajax();
 	
+	if(count($_POST) > 1){
+		$ajax->set_element("PROBLEM ! Normally count of post is 1", "#ip_response_1");
+	} else {
+		$ajax->set_element("OK .js dont search out of this area", "#ip_response_1");
+	}
+	
+	$ajax->set_element($_POST['ip'], "#ip_response_2");
+	
+	$ajax->load_view();
+}
+
+function ip_no_array(){
+	$ajax = new Ajax();
+	
 	foreach($_POST as $key => $value){
 		$resp2 .= '<p>' . $key . " -> " . $value . '</p>';
 	}
 	
-	$resp2 = $ajax->set_element($resp2, "#ip_response_1");
+	$ajax->set_element($resp2, "#ip_response_1_n");
 	
-	$ajax->set_element($_POST['ip'], "#ip_response_2");
+	$ajax->set_element($_POST['ip_no_array'], "#ip_response_2_n");
 	
 	$ajax->load_view();
 }

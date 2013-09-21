@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Version 3
+ * */
+
 class Ajax {
 	
     private $stack = array();
@@ -11,6 +15,11 @@ class Ajax {
         array_push($this->stack, $arr);
     }
 
+	//todo : add parameters of method. This method is little deprecated... but could be usefull in some case
+	public function call_jquery_method($method, $selector){
+		$this->add_action('call_jquery_method', array('method' => $method, 'selector' => $selector));
+	}
+	
 	public function set_popup($options){
 		if(is_array($options)){
 			foreach($options as $option => $values){
@@ -40,7 +49,7 @@ class Ajax {
 		}
 	}
 
-    public function popup_add($html, $call) {
+    public function popup_add($html) {
         $this->add_action('popup', array('html' => $html));
     }
 
