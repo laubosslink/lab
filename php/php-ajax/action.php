@@ -2,6 +2,14 @@
 
 include("lib.php");
 
+function radio_a(){
+	$ajax = new Ajax();
+	
+	$ajax->popup_add($_POST["label_need_a"]["arr"]);
+	
+	$ajax->load_view();
+}
+
 function call_hidden_element(){
 	$ajax = new Ajax();
 	
@@ -189,7 +197,7 @@ function ip_form(){
 function close_form(){
 	$ajax = new Ajax();
 	
-	$ajax->disable_form("#the_form");
+	$ajax->disable_form("#the_form_form");
 	
 	$ajax->load_view();
 }
@@ -197,7 +205,7 @@ function close_form(){
 function open_form(){
 	$ajax = new Ajax();
 	
-	$ajax->enable_form("#the_form");
+	$ajax->enable_form("#the_form_form");
 	
 	$ajax->load_view();
 }

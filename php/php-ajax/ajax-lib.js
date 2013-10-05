@@ -1,6 +1,6 @@
 /*
  * This script require : jquery, jquery-ui
- * Version 3 (with issue)
+ * Version 4 (with issue)
  * TODO : effect like fadein, but after good work
  */
 
@@ -9,7 +9,7 @@ var DEFAULT_ATTR_CATCH = "data-call-ajax";
 var DEFAULT_AREA_CATCH = "data-call-area-element";
 var DEBUG=true;
 
-$(document).ready(function() {
+function ajax_lib() {
 
     // If a <div> with default dialog id exist, we open the dialog
     register_dialog('#' + DEFAULT_DIALOG_ID);
@@ -111,10 +111,23 @@ $(document).ready(function() {
         if ($(this).attr(DEFAULT_ATTR_CATCH)) {
 
             $current_link = $(this);
-
-            // Retrieve label
-            posts = $(this).serialize().split("&");
-            labels = "";
+            
+            var labels="";
+            
+            posts = $(this).serializeArray();
+            for(var i in posts){
+				current_label = $('label[for="' + posts[i]['name'] + '"]').html();
+				
+				if(current_label){
+					labels += "&label_" + posts[i]["name"] + "=" + current_label;
+				} else if(DEBUG)
+				{$('label[for="' + posts[i]['name'] + '"]').html()
+					debug_msg("No label for name='" + posts[i]['name'] + "'");
+				}
+			}
+			
+            // Retrieve label without array : example you have in html name="form[arr]" it will just search <label for="form">..</label>
+            /*posts = $(this).serialize().split("&");
             for (var i in posts) {
                 post = ((String)(posts[i]).split("="))[0];
 
@@ -122,6 +135,8 @@ $(document).ready(function() {
                 if (((String)(post)).indexOf('%') !== -1) {
                     post = ((String)(posts[i]).split("%"))[0];
                 }
+				
+				console.log(post);
 				
 				current_label = $('label[for="' + post + '"]').html();
 				
@@ -132,7 +147,7 @@ $(document).ready(function() {
 				{
 					debug_msg("No label for name='" + post + "'");
 				}
-            }
+            }*/
 
             $.ajax({
                 type: "POST",
@@ -140,10 +155,8 @@ $(document).ready(function() {
                 data: $(this).serialize() + labels,
                 async: false,
                 success: function(result) {
-                    if (result) {
                         event.preventDefault();
                         parse_result(result);
-                    }
                 },
                 error: function() {
                     alert("There is problem with submit form.");
@@ -195,7 +208,9 @@ $(document).ready(function() {
             $('#'+DEFAULT_DIALOG_ID).dialog("open");
         }
     });
-});
+}
+
+$(document).ready(ajax_lib);
 
 /**
  * Parse result
@@ -358,7 +373,7 @@ function remove_elements(selector, id, selector_id) {
  * @param {string} selector
  */
 function disable_form(selector) {
-    $(selector).closest('form').find('input,textarea,select,button').prop('disabled', true);
+    $(selector).closest(selector).find('input,textarea,select,button').prop('disabled', true);
 }
 
 /**
@@ -366,7 +381,7 @@ function disable_form(selector) {
  * @param {string} selector 
  */
 function enable_form(selector) {
-    $(selector).closest('form').find('input,textarea,select,button').prop('disabled', false);
+    $(selector).closest(selector).find('input,textarea,select,button').prop('disabled', false);
 }
 
 /**
