@@ -1,8 +1,11 @@
 CC=gcc
 
-all:tab_3d simple_test
+all:tab_3d simple_test advanced_test
 
 simple_test: simple_test.c
+	$(CC) $< -o $@
+
+advanced_test: advanced_test.c
 	$(CC) $< -o $@
 
 tab_3d: tab_3d.c
@@ -16,3 +19,6 @@ test_tab:
 
 test_simple:
 	./simple_test
+
+test_advanced:
+	./advanced_test
