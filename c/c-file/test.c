@@ -19,6 +19,11 @@ int main(){
 	fscanf(f, "%c", &c);
 	
 	printf("charactere : %c\n", c);
+
+	/* it doesnt work to use \n.... SO USE fseek PLEASE ! */
+	fscanf(f, "\n\n\n \n%c", &c);
+	
+	printf("charactere : %c\n", c);
 	
 	return 0;
 }
