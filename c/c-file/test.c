@@ -2,19 +2,28 @@
 #include <stdlib.h>
 
 int main(){
-	char str[80];
-	char str2[80];
+	FILE* f;
+	
+	f = fopen("test.txt", "r");
+	
+	fseek(f, 2, SEEK_CUR);
+	
+	char c;
+	
+	fscanf(f, "%c", &c);
+	
+	printf("charactere : %c\n", c);
+	
+	fseek(f, 3, SEEK_CUR);
+	
+	fscanf(f, "%c", &c);
+	
+	printf("charactere : %c\n", c);
 
-	FILE *f = fopen("test.txt", "r");
-
-	fscanf(f, "%s\n", str);
-	fscanf(f, "%s\n", str2);
-
-	printf("%s\n", str);
-	printf("%s\n", str2);
-
-	fclose(f);
-
+	/* it doesnt work to use \n.... SO USE fseek PLEASE ! */
+	fscanf(f, "\n\n\n \n%c", &c);
+	
+	printf("charactere : %c\n", c);
+	
 	return 0;
 }
-

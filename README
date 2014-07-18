@@ -1,0 +1,9 @@
+This project respect hierarchy like this:
+	DIR/DIR-CONTEXTKEYWORD/...
+
+Dir is generally a programming language.
+
+For example:
+	C/C-PRINTF/
+	PHP/PHP-APC/
+	...
