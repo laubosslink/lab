@@ -2,6 +2,9 @@ CC=gcc
 
 all:tab_3d simple_test advanced_test
 
+sizeof_test: sizeof_test.c	
+	$(CC) $< -o $@
+
 simple_test: simple_test.c
 	$(CC) $< -o $@
 
@@ -13,6 +16,9 @@ tab_3d: tab_3d.c
 
 clean:
 	rm -f simple_test tab_3d
+
+test_sizeof:
+	./sizeof_test
 
 test_tab:
 	./tab_3d
