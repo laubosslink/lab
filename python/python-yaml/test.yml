@@ -1,0 +1,3 @@
+pfsense:
+  version: 10
+  theme: pfsense_ng

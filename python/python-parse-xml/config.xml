@@ -1,0 +1,1119 @@
+<pfsense>
+	<version>10.10</version>
+	<lastchange />
+	<theme>pfsense_ng_3</theme>
+	<sysctl>
+		<item>
+			<descr>Disable the pf ftp proxy handler.</descr>
+			<tunable>debug.pfftpproxy</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Increase UFS read-ahead speeds to match current state of hard drives and NCQ. More information here: http://ivoras.sharanet.org/blog/tree/2010-11-19.ufs-read-ahead.html</descr>
+			<tunable>vfs.read_max</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Set the ephemeral port range to be lower.</descr>
+			<tunable>net.inet.ip.portrange.first</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Drop packets to closed TCP ports without returning a RST</descr>
+			<tunable>net.inet.tcp.blackhole</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Do not send ICMP port unreachable messages for closed UDP ports</descr>
+			<tunable>net.inet.udp.blackhole</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Randomize the ID field in IP packets (default is 0: sequential IP IDs)</descr>
+			<tunable>net.inet.ip.random_id</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Drop SYN-FIN packets (breaks RFC1379, but nobody uses it anyway)</descr>
+			<tunable>net.inet.tcp.drop_synfin</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Enable sending IPv4 redirects</descr>
+			<tunable>net.inet.ip.redirect</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Enable sending IPv6 redirects</descr>
+			<tunable>net.inet6.ip6.redirect</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Generate SYN cookies for outbound SYN-ACK packets</descr>
+			<tunable>net.inet.tcp.syncookies</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Maximum incoming/outgoing TCP datagram size (receive)</descr>
+			<tunable>net.inet.tcp.recvspace</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Maximum incoming/outgoing TCP datagram size (send)</descr>
+			<tunable>net.inet.tcp.sendspace</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>IP Fastforwarding</descr>
+			<tunable>net.inet.ip.fastforwarding</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Do not delay ACK to try and piggyback it onto a data packet</descr>
+			<tunable>net.inet.tcp.delayed_ack</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Maximum outgoing UDP datagram size</descr>
+			<tunable>net.inet.udp.maxdgram</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Handling of non-IP packets which are not passed to pfil (see if_bridge(4))</descr>
+			<tunable>net.link.bridge.pfil_onlyip</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Set to 0 to disable filtering on the incoming and outgoing member interfaces.</descr>
+			<tunable>net.link.bridge.pfil_member</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Set to 1 to enable filtering on the bridge interface</descr>
+			<tunable>net.link.bridge.pfil_bridge</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Allow unprivileged access to tap(4) device nodes</descr>
+			<tunable>net.link.tap.user_open</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Randomize PID's (see src/sys/kern/kern_fork.c: sysctl_kern_randompid())</descr>
+			<tunable>kern.randompid</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Maximum size of the IP input queue</descr>
+			<tunable>net.inet.ip.intr_queue_maxlen</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Disable CTRL+ALT+Delete reboot from keyboard.</descr>
+			<tunable>hw.syscons.kbd_reboot</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Enable TCP Inflight mode</descr>
+			<tunable>net.inet.tcp.inflight.enable</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Enable TCP extended debugging</descr>
+			<tunable>net.inet.tcp.log_debug</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Set ICMP Limits</descr>
+			<tunable>net.inet.icmp.icmplim</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>TCP Offload Engine</descr>
+			<tunable>net.inet.tcp.tso</tunable>
+			<value>default</value>
+		</item>
+		<item>
+			<descr>Maximum socket buffer size</descr>
+			<tunable>kern.ipc.maxsockbuf</tunable>
+			<value>default</value>
+		</item>
+	</sysctl>
+	<system>
+		<optimization>normal</optimization>
+		<hostname>edge-gateway-test</hostname>
+		<domain>imonedge.net</domain>
+		<group>
+			<name>admins</name>
+			<description>System Administrators</description>
+			<scope>system</scope>
+			<gid>1999</gid>
+			<member>0</member>
+			<priv>page-all</priv>
+		</group>
+		<group>
+			<name>all</name>
+			<description>All Users</description>
+			<scope>system</scope>
+			<gid>1998</gid>
+		</group>
+		<user>
+			<name>admin</name>
+			<descr>System Administrator</descr>
+			<scope>system</scope>
+			<groupname>admins</groupname>
+			<password>{{ salt['pillar.get']('proxygate:admin_user:password') }}</password>
+			<uid>0</uid>
+			<priv>user-shell-access</priv>
+			<expires />
+			<authorizedkeys>{{ salt['pillar.get']('proxygate:admin_user:authorized_keys') }}</authorizedkeys>
+			<ipsecpsk />
+			<md5-hash>{{ salt['pillar.get']('proxygate:admin_user:md5-hash') }}</md5-hash>
+			<nt-hash>{{ salt['pillar.get']('proxygate:admin_user:nt-hash') }}</nt-hash>
+		</user>
+		<user>
+			<scope>user</scope>
+			<password>$1$wJKLIHmM$p5SM86bg5zR7Q.LhlDOB8.</password>
+			<md5-hash>098f6bcd4621d373cade4e832627b4f6</md5-hash>
+			<nt-hash>57b292d416b8fd6eb09677a7bcc936ae</nt-hash>
+			<name>edge</name>
+			<descr />
+			<expires />
+			<authorizedkeys />
+			<ipsecpsk />
+			<cert>51d46939c74b1</cert>
+			<uid>2005</uid>
+		</user>
+		<nextuid>2006</nextuid>
+		<nextgid>2002</nextgid>
+		<timezone>America/Montreal</timezone>
+		<time-update-interval />
+		<timeservers>ca.pool.ntp.org</timeservers>
+		<webgui>
+			<protocol>https</protocol>
+			<ssl-certref>4f8ec618a1094</ssl-certref>
+			<port />
+			<max_procs>2</max_procs>
+			<loginautocomplete />
+		</webgui>
+		<disablesegmentationoffloading />
+		<disablelargereceiveoffloading />
+		<dns1gwint>none</dns1gwint>
+		<dns2gwint>none</dns2gwint>
+		<dns3gwint>none</dns3gwint>
+		<dns4gwint>none</dns4gwint>
+		<enablesshd>enabled</enablesshd>
+		<firmware>
+			<alturl>
+				<enable />
+				<firmwareurl>http://updates.pfsense.org/_updaters/amd64</firmwareurl>
+			</alturl>
+			<allowinvalidsig />
+		</firmware>
+		<gitsync>
+			<repositoryurl />
+			<branch />
+		</gitsync>
+		<disableconsolemenu />
+		<maximumstates />
+		<maximumtableentries />
+		<reflectiontimeout />
+		<ssh />
+{% for dns in salt['pillar.get']('proxygate:network:dns') %}
+                <dnsserver>{{ dns }}</dnsserver>
+{% endfor %}
+		<kill_states />
+		<serialspeed>9600</serialspeed>
+	</system>
+	<interfaces>
+		<wan>
+			<enable />
+			<if>em0</if>
+			<descr>{{ salt['pillar.get']('proxygate:network:em0:desc') }}</descr>
+			<spoofmac />
+			<alias-address />
+			<alias-subnet>32</alias-subnet>
+			<ipaddr>dhcp</ipaddr>
+			<dhcphostname />
+			<blockbogons />
+			<subnet />
+			
+		</wan>
+                <lan>
+                        <enable />
+                        <if>em1</if>
+                        <ipaddr>{{ salt['pillar.get']('proxygate:network:em1:ip')  }}</ipaddr>
+                        <subnet>24</subnet>
+                        <media />
+                        <mediaopt />
+                        <descr>{{ salt['pillar.get']('proxygate:network:em1:desc')  }}</descr>
+                </lan>
+                <opt1>
+                        <descr>{{ salt['pillar.get']('proxygate:network:em2:desc') }}</descr>
+                        <if>em2</if>
+                        <enable />
+                        <spoofmac />
+                        <ipaddr>{{ salt['pillar.get']('proxygate:network:em2:ip') }}</ipaddr>
+                        <subnet>24</subnet>
+                        <gateway>Management_VPN_Gateway</gateway>
+                </opt1>
+                <opt2>
+                        <descr>{{ salt['pillar.get']('proxygate:network:em3:desc') }}</descr>
+                        <if>em3</if>
+                        <enable />
+                        <spoofmac />
+                        <ipaddr>{{ salt['pillar.get']('proxygate:network:em3:ip')  }}</ipaddr>
+                        <subnet>24</subnet>
+                </opt2>
+	</interfaces>
+	<staticroutes>
+		<route>
+			<network>{{ salt['pillar.get']('proxygate:network:reverse_vpn')  }}/24</network>
+			<gateway>Management_VPN_Gateway</gateway>
+			<descr />
+		</route>
+	</staticroutes>
+	<dhcpd>
+                <lan>
+                        <range>
+                                <from>{{ salt['pillar.get']('proxygate:network:dhcp:from')  }}</from>
+                                <to>{{ salt['pillar.get']('proxygate:network:dhcp:to') }}</to>
+                        </range>
+                        <enable />
+                        <defaultleasetime />
+                        <maxleasetime />
+                        <netmask />
+                        <failover_peerip />
+                        <gateway>{{ salt['pillar.get']('proxygate:network:dhcp:gateway') }}</gateway>
+                        <domain>office</domain>
+                        <domainsearchlist>office</domainsearchlist>
+                        <ddnsdomain />
+                        <tftp />
+                        <ldap />
+                        <next-server />
+                        <filename />
+                        <rootpath />
+                        <numberoptions>
+                                <item>
+                                        <number>252</number>
+                                        <type>text</type>
+                                        <value>http://{{ salt['pillar.get']('edge:network:webserver:ip')  }}/wpad.dat</value>
+                                </item>
+                        </numberoptions>
+                        <dnsserver>{{ salt['pillar.get']('proxygate:network:dhcp:dns') }}</dnsserver>
+                </lan>
+        </dhcpd>
+	<pptpd>
+		<mode />
+		<redir />
+		<localip />
+		<remoteip />
+	</pptpd>
+	<dnsmasq>
+		<enable />
+		<regdhcp />
+		<regdhcpstatic />
+		<custom_options />
+		<dhcpfirst />
+{% for host in salt['pillar.get']('proxygate:hosts')  %}
+                <hosts>
+                        <host>{{ host['host'] }}</host>
+                        <domain>{{ host['domain'] }}</domain>
+                        <ip>{{ host['ip'] }}</ip>
+                        <descr>{{ host['desc'] }}</descr>
+                </hosts>
+{% endfor %}
+	</dnsmasq>
+	<snmpd>
+		<syslocation />
+		<syscontact />
+		<rocommunity>public</rocommunity>
+	</snmpd>
+	<diag>
+		<ipv6nat>
+			<ipaddr />
+		</ipv6nat>
+	</diag>
+	<bridge />
+	<syslog>
+		<reverse />
+		<nentries>2000</nentries>
+		<dhcp />
+		<vpn />
+		<apinger />
+		<system />
+		<nologdefaultblock />
+		<filter />
+		<portalauth />
+		<relayd />
+		<hostapd />
+		<nologbogons />
+		<nologprivatenets />
+	</syslog>
+	<filter>
+		<rule>
+			<id />
+			<type>match</type>
+			<interface>wan</interface>
+			<tag />
+			<tagged />
+			<direction>any</direction>
+			<floating>yes</floating>
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<protocol>tcp</protocol>
+			<source>
+				<any />
+			</source>
+			<destination>
+				<any />
+				<port>80</port>
+			</destination>
+			<descr>QoS (High Priority) - HTTP</descr>
+			<defaultqueue>qHigh</defaultqueue>
+			<ackqueue>qACK</ackqueue>
+			<tracker>1406073641</tracker>
+		</rule>
+		<rule>
+			<id />
+			<type>match</type>
+			<interface>wan</interface>
+			<tag />
+			<tagged />
+			<direction>any</direction>
+			<floating>yes</floating>
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<protocol>tcp</protocol>
+			<source>
+				<any />
+			</source>
+			<destination>
+				<any />
+				<port>443</port>
+			</destination>
+			<descr>QoS (High Priority) - HTTPS</descr>
+			<defaultqueue>qHigh</defaultqueue>
+			<ackqueue>qACK</ackqueue>
+			<tracker>1406073642</tracker>
+		</rule>
+		<rule>
+			<id />
+			<tag />
+			<tagged />
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<type>block</type>
+			<descr>pfBlockerTopSpammers auto rule</descr>
+			<source>
+				<address>pfBlockerTopSpammers</address>
+			</source>
+			<destination>
+				<any />
+			</destination>
+			<interface>wan</interface>
+			<tracker>1406073643</tracker>
+		</rule>
+		<rule>
+			<id />
+			<type>pass</type>
+			<interface>wan</interface>
+			<tag />
+			<tagged />
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<protocol>udp</protocol>
+			<source>
+				<any />
+			</source>
+			<destination>
+				<any />
+				<port>443</port>
+			</destination>
+			<descr>OpenVPN Port</descr>
+			<tracker>1406073644</tracker>
+		</rule>
+		<rule>
+			<source>
+				<any />
+			</source>
+			<interface>wan</interface>
+			<protocol>tcp</protocol>
+			<destination>
+				<address>EdgeWebServer</address>
+				<port>WebServer_Ports</port>
+			</destination>
+			<descr>NAT Forward Port 80,443 to Web Server</descr>
+			<associated-rule-id>nat_51796a6dbe0ed3.58759294</associated-rule-id>
+			<tracker>1406073645</tracker>
+		</rule>
+		<rule>
+			<type>pass</type>
+			<descr>Default allow LAN to any rule</descr>
+			<interface>lan</interface>
+			<source>
+				<network>lan</network>
+			</source>
+			<destination>
+				<any />
+			</destination>
+			<tracker>1406073646</tracker>
+		</rule>
+		<rule>
+			<id />
+			<type>pass</type>
+			<interface>openvpn</interface>
+			<tag />
+			<tagged />
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<source>
+				<any />
+			</source>
+			<destination>
+				<any />
+			</destination>
+			<descr>OpenVPN Any to Any</descr>
+			<tracker>1406073647</tracker>
+		</rule>
+		<rule>
+			<id />
+			<type>pass</type>
+			<interface>opt1</interface>
+			<tag />
+			<tagged />
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<source>
+				<network>opt1</network>
+			</source>
+			<destination>
+				<any />
+			</destination>
+			<descr>Management to Any</descr>
+			<tracker>1406073648</tracker>
+		</rule>
+		<rule>
+			<id />
+			<type>pass</type>
+			<interface>opt2</interface>
+			<tag />
+			<tagged />
+			<max />
+			<max-src-nodes />
+			<max-src-conn />
+			<max-src-states />
+			<statetimeout />
+			<statetype>keep state</statetype>
+			<os />
+			<source>
+				<network>opt2</network>
+			</source>
+			<destination>
+				<any />
+			</destination>
+			<descr>HVM Host to ANY</descr>
+			<tracker>1406073649</tracker>
+		</rule>
+	</filter>
+	<ipsec>
+		<preferoldsa />
+	</ipsec>
+	<aliases>
+		<alias>
+			<name>Authorized_Hosts</name>
+			<address>messenger.hotmail.com gateway.messenger.hotmail.com</address>
+			<descr>Authorized Hosts</descr>
+			<type>network</type>
+			<detail>Hotmail||Hotmail</detail>
+		</alias>
+		<alias>
+			<name>EdgeWebServer</name>
+			<address>192.168.253.252</address>
+			<descr />
+			<type>host</type>
+			<detail>Entry added Thu, 03 May 2012 14:13:27 -0400</detail>
+		</alias>
+		<alias>
+			<name>pfBlockerTopSpammers</name>
+			<url>https://127.0.0.1:443/pfblocker.php?pfb=pfBlockerTopSpammers</url>
+			<updatefreq>32</updatefreq>
+			<address />
+			<descr>pfBlocker country list</descr>
+			<type>urltable</type>
+			<detail>DO NOT EDIT THIS ALIAS</detail>
+		</alias>
+		<alias>
+			<name>WebServer_Ports</name>
+			<address>80 443</address>
+			<descr />
+			<type>port</type>
+			<detail>Entry added Thu, 25 Apr 2013 13:39:31 -0400||Entry added Thu, 25 Apr 2013 13:39:31 -0400</detail>
+		</alias>
+	</aliases>
+	<proxyarp />
+	<cron>
+		<item>
+			<minute>1,31</minute>
+			<hour>0-5</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/bin/nice -n20 adjkerntz -a</command>
+		</item>
+		<item>
+			<minute>1</minute>
+			<hour>3</hour>
+			<mday>1</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/bin/nice -n20 /etc/rc.update_bogons.sh</command>
+		</item>
+		<item>
+			<minute>*/60</minute>
+			<hour>*</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/bin/nice -n20 /usr/local/sbin/expiretable -v -t 3600 sshlockout</command>
+		</item>
+		<item>
+			<minute>1</minute>
+			<hour>1</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/bin/nice -n20 /etc/rc.dyndns.update</command>
+		</item>
+		<item>
+			<minute>*/60</minute>
+			<hour>*</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/bin/nice -n20 /usr/local/sbin/expiretable -v -t 3600 virusprot</command>
+		</item>
+		<item>
+			<minute>30</minute>
+			<hour>12</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/bin/nice -n20 /etc/rc.update_urltables</command>
+		</item>
+		<item>
+			<minute>0</minute>
+			<hour>*</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/local/bin/php -q /usr/local/www/pfblocker.php cron</command>
+		</item>
+		<item>
+			<minute>0</minute>
+			<hour>*/1</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/local/bin/php /usr/local/www/sarg.php 0</command>
+		</item>
+		<item>
+			<minute>1</minute>
+			<hour>0</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/bin/kill -HUP `cat /var/run/bandwidthd.pid`</command>
+		</item>
+		<item>
+			<task_name>squid_rotate_logs</task_name>
+			<minute>0</minute>
+			<hour>0</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/bin/rm /var/squid/cache/swap.state; /usr/pbi/squid-amd64/sbin/squid -k rotate</command>
+		</item>
+		<item>
+			<task_name>squid_check_swapstate</task_name>
+			<minute>*/15</minute>
+			<hour>*</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+			<who>root</who>
+			<command>/usr/local/pkg/swapstate_check.php</command>
+		</item>
+	</cron>
+	<wol />
+	<rrd>
+		<enable />
+	</rrd>
+	<load_balancer>
+		<monitor_type>
+			<name>ICMP</name>
+			<type>icmp</type>
+			<descr>ICMP</descr>
+			<options />
+		</monitor_type>
+		<monitor_type>
+			<name>TCP</name>
+			<type>tcp</type>
+			<descr>Generic TCP</descr>
+			<options />
+		</monitor_type>
+		<monitor_type>
+			<name>HTTP</name>
+			<type>http</type>
+			<descr>Generic HTTP</descr>
+			<options>
+				<path>/</path>
+				<host />
+				<code>200</code>
+			</options>
+		</monitor_type>
+		<monitor_type>
+			<name>HTTPS</name>
+			<type>https</type>
+			<descr>Generic HTTPS</descr>
+			<options>
+				<path>/</path>
+				<host />
+				<code>200</code>
+			</options>
+		</monitor_type>
+		<monitor_type>
+			<name>SMTP</name>
+			<type>send</type>
+			<descr>Generic SMTP</descr>
+			<options>
+				<send />
+				<expect>220 *</expect>
+			</options>
+		</monitor_type>
+	</load_balancer>
+	<widgets>
+		<sequence>interfaces-container:col1:show,gateways-container:col1:show,system_information-container:col1:show,captive_portal_status-container:col1:close,carp_status-container:col1:close,cpu_graphs-container:col1:close,gmirror_status-container:col1:close,installed_packages-container:col1:close,services_status-container:col2:show,interface_statistics-container:col2:show,ipsec-container:col2:close,load_balancer_status-container:col2:close,log-container:col2:close,picture-container:col2:close,rss-container:col2:close,traffic_graphs-container:col2:show,openvpn-container:col2:none,pfBlocker-container:col2:close,wake_on_lan-container:col2:none</sequence>
+	</widgets>
+	<revision>
+		<time>1406073648</time>
+		<description>(system): Removed squid package.
+</description>
+		<username>(system)</username>
+	</revision>
+	<openvpn>
+		<openvpn-server>
+			<vpnid>1</vpnid>
+			<mode>server_tls_user</mode>
+			<authmode>Local Database</authmode>
+			<protocol>{{ salt['pillar.get']('proxygate:vpn:protocol') }}</protocol>
+			<dev_mode>{{ salt['pillar.get']('proxygate:vpn:dev_mode') }}</dev_mode>
+			<ipaddr />
+			<interface>{{ salt['pillar.get']('proxygate:vpn:interface') }}</interface>
+			<local_port>{{ salt['pillar.get']('proxygate:vpn:local_port') }}</local_port>
+			<description>{{ salt['pillar.get']('proxygate:vpn:desc') }}</description>
+			<custom_options />
+			<tls>{{ salt['pillar.get']('proxygate:vpn:tls') }}</tls>
+			<caref>{{ salt['pillar.get']('proxygate:vpn:caref') }}</caref>
+			<crlref />
+			<certref>{{ salt['pillar.get']('proxygate:vpn:certref') }}</certref>
+			<dh_length>{{ salt['pillar.get']('proxygate:vpn:dh_length') }}</dh_length>
+			<cert_depth>1</cert_depth>
+			<strictusercn />
+			<crypto>{{ salt['pillar.get']('proxygate:vpn:crypto') }}</crypto>
+			<engine>none</engine>
+			<tunnel_network>{{ salt['pillar.get']('proxygate:vpn:tunnel_network') }}</tunnel_network>
+			<remote_network />
+			<gwredir />
+			<local_network>{{ salt['pillar.get']('proxygate:vpn:local_network') }}</local_network>
+			<maxclients />
+			<compression />
+			<passtos />
+			<client2client />
+			<dynamic_ip>yes</dynamic_ip>
+			<pool_enable>yes</pool_enable>
+			<dns_domain>imonedge.net</dns_domain>
+			<dns_server1>{{ salt['pillar.get']('proxygate:vpn:dns') }}</dns_server1>
+			<dns_server2 />
+			<dns_server3 />
+			<dns_server4 />
+			<netbios_enable>yes</netbios_enable>
+			<netbios_ntype>4</netbios_ntype>
+			<netbios_scope />
+			<nbdd_server1 />
+			<duplicate_cn />
+		</openvpn-server>
+	</openvpn>
+	<l7shaper>
+		<container />
+	</l7shaper>
+	<dnshaper />
+	<cert>
+		<refid>4f8ec618a1094</refid>
+		<descr>webConfigurator default</descr>
+		<crt>LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVLRENDQTVHZ0F3SUJBZ0lKQUxXWkR5U2dheVpKTUEwR0NTcUdTSWIzRFFFQkJRVUFNSUcvTVFzd0NRWUQKVlFRR0V3SlZVekVTTUJBR0ExVUVDQk1KVTI5dFpYZG9aWEpsTVJFd0R3WURWUVFIRXdoVGIyMWxZMmwwZVRFVQpNQklHQTFVRUNoTUxRMjl0Y0dGdWVVNWhiV1V4THpBdEJnTlZCQXNUSms5eVoyRnVhWHBoZEdsdmJtRnNJRlZ1CmFYUWdUbUZ0WlNBb1pXY3NJSE5sWTNScGIyNHBNU1F3SWdZRFZRUURFeHREYjIxdGIyNGdUbUZ0WlNBb1pXY3MKSUZsUFZWSWdibUZ0WlNreEhEQWFCZ2txaGtpRzl3MEJDUUVXRFVWdFlXbHNJRUZrWkhKbGMzTXdIaGNOTVRJdwpOREU0TVRNME9EQTRXaGNOTVRjeE1EQTVNVE0wT0RBNFdqQ0J2ekVMTUFrR0ExVUVCaE1DVlZNeEVqQVFCZ05WCkJBZ1RDVk52YldWM2FHVnlaVEVSTUE4R0ExVUVCeE1JVTI5dFpXTnBkSGt4RkRBU0JnTlZCQW9UQzBOdmJYQmgKYm5sT1lXMWxNUzh3TFFZRFZRUUxFeVpQY21kaGJtbDZZWFJwYjI1aGJDQlZibWwwSUU1aGJXVWdLR1ZuTENCegpaV04wYVc5dUtURWtNQ0lHQTFVRUF4TWJRMjl0Ylc5dUlFNWhiV1VnS0dWbkxDQlpUMVZTSUc1aGJXVXBNUnd3CkdnWUpLb1pJaHZjTkFRa0JGZzFGYldGcGJDQkJaR1J5WlhOek1JR2ZNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0R04KQURDQmlRS0JnUURKdmpFWlZqYWVZQkNvcjFyTm8vS2ZaMnpLbFI3bkQrSE9KMDIzcUQ2eW1oTkIrZ0FpTjZxbwpSY1JOdWY2UlJ2ajY4NHVJQ2owZFFFMDZhWlQ5NzhWZk1OendOMmRCV0QxbFBMbTJRQk5neXBQNkhsSFdtRG50CmpGQTdXcytBQlAzL0pqSHArcFFzMXlzNytvYTlvdm1EZE84TklYQUpRSm1oakgzcTNLaE1MUUlEQVFBQm80SUIKS0RDQ0FTUXdIUVlEVlIwT0JCWUVGTnd1bzNITkhYMEc5eERIZlcwMWx4Njl0ek0zTUlIMEJnTlZIU01FZ2V3dwpnZW1BRk53dW8zSE5IWDBHOXhESGZXMDFseDY5dHpNM29ZSEZwSUhDTUlHL01Rc3dDUVlEVlFRR0V3SlZVekVTCk1CQUdBMVVFQ0JNSlUyOXRaWGRvWlhKbE1SRXdEd1lEVlFRSEV3aFRiMjFsWTJsMGVURVVNQklHQTFVRUNoTUwKUTI5dGNHRnVlVTVoYldVeEx6QXRCZ05WQkFzVEprOXlaMkZ1YVhwaGRHbHZibUZzSUZWdWFYUWdUbUZ0WlNBbwpaV2NzSUhObFkzUnBiMjRwTVNRd0lnWURWUVFERXh0RGIyMXRiMjRnVG1GdFpTQW9aV2NzSUZsUFZWSWdibUZ0ClpTa3hIREFhQmdrcWhraUc5dzBCQ1FFV0RVVnRZV2xzSUVGa1pISmxjM09DQ1FDMW1ROGtvR3NtU1RBTUJnTlYKSFJNRUJUQURBUUgvTUEwR0NTcUdTSWIzRFFFQkJRVUFBNEdCQUJKVXZMVnpGWE9TOUpZZ2NBRE9oRlNyVHVBTwovY083NzVKVTBpZHVySnN0QkNpWE9LQVJvL3U4TGhSYTdMRXJsbHFzc1JYMi9ReEpwWkdCOWFvb0tCUVhmR0EvCnhjNkRaODd4cmlzZHo4QitueHFUcE5EY2VmdHFiYXozS1V5MmFXT2RiZnhqMjNUSjJPSVpZcStDR3RJTU5JSi8KTVFjby8wbEFYUHhSK0ZkNgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==</crt>
+		<prv>R2VuZXJhdGluZyBSU0EgcHJpdmF0ZSBrZXksIDEwMjQgYml0IGxvbmcgbW9kdWx1cwouLi4uLi4uKysrKysrCi4uLisrKysrKwp1bmFibGUgdG8gd3JpdGUgJ3JhbmRvbSBzdGF0ZScKZSBpcyA2NTUzNyAoMHgxMDAwMSkKLS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlDWFFJQkFBS0JnUURKdmpFWlZqYWVZQkNvcjFyTm8vS2ZaMnpLbFI3bkQrSE9KMDIzcUQ2eW1oTkIrZ0FpCk42cW9SY1JOdWY2UlJ2ajY4NHVJQ2owZFFFMDZhWlQ5NzhWZk1OendOMmRCV0QxbFBMbTJRQk5neXBQNkhsSFcKbURudGpGQTdXcytBQlAzL0pqSHArcFFzMXlzNytvYTlvdm1EZE84TklYQUpRSm1oakgzcTNLaE1MUUlEQVFBQgpBb0dCQUo5M0tlSklKblk3b3c5alJKaEYzbk1uMG5Pek9iRVUrYnoxamxYOHRFcUN4WFFpUTliSVA2b3hNNERvCjR4TThrWFB6N0xnRXQ5Z1dTclZBWGRmM25mOUFHYkt1ekdYY1JUTXJ5aWt2L2FVaGR4aDBmYlhlak5qcVBNSmIKcE9seUlMTVBua1NIaXVnUy9xa0wyclAzNkg2R1BaTy80SXMwa0JXeFdwaVdDa3RCQWtFQTVkeE5WMHRyZUJ4QgpPa0drbmlZdEtKZjNkdEdiVUhzMm5Tam9nVndBSnQ3cnZrSEkwWDF0dExtVHJONkY4ZzRHcm5HRUNWUGFQYWh6CjhzUVZoSWxvRVFKQkFPQ3ZWSE9aN0JTbFNZRE1yWEphU3BKdys2NzNsc3ZQbmtFaWZOUDRLV0JJWDV5bWlsekoKclJ5L1ZSbkdQcXAzOGkzUlpKakV0Qms2YWhEd3dIdFRubDBDUVFDOVdjeHdZOVdrL1FtU2x1Nm54T1VnY29kTgpYdi9sdllwUXpwa3hydnNGQ2xBQ3k2aEZRbUQwSm9lTE9VZjREU3ZkMmU4ZHkvQ1ZLRVpUcnNuWEEyWXhBa0IzClNIM1VWWTVCTTdML0h5cWlBQStCQ1Z5RStrcmpieGo4U1h2dDZOekdrZ1c0bTYzdkx0NnAyV1lycGRUVkdaTEkKQWxlZXh5YzZFWW9IN2xpeDRLVzlBa0E2TWFRUXphYzFxakh4ZEJBV2s2QlBDSDduVGVzRlBTYzVBZkFPcTdJRwpXVU8yYUliK3NXL3Q0UzFYOFlvMEMxc05XSWtWZStaZG81cE83S1V4WWxMcwotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=</prv>
+	</cert>
+{% for cert in salt['pillar.get']('proxygate:certs') %}
+        <cert>
+                <refid>{{ cert['ref'] }}</refid>
+                <descr>{{ cert['desc'] }}</descr>
+                <caref>{{ cert['caref'] }}</caref>
+                <crt>{{ cert['crt'] }}</crt>
+                <prv>{{ cert['prv'] }}</prv>
+                <type>{{ cert['type'] }}</type>
+        </cert>
+{% endfor %}
+	<installedpackages>
+		<menu>
+			<name>BandwidthD</name>
+			<tooltiptext />
+			<section>Services</section>
+			<url>/pkg_edit.php?xml=bandwidthd.xml&amp;id=0</url>
+		</menu>
+		<menu>
+			<name>pfBlocker</name>
+			<tooltiptext>Configure pfblocker</tooltiptext>
+			<section>Firewall</section>
+			<url>/pkg_edit.php?xml=pfblocker.xml</url>
+		</menu>
+		<menu>
+			<name>Proxy server</name>
+			<tooltiptext>Modify the proxy server's settings</tooltiptext>
+			<section>Services</section>
+			<url>/pkg_edit.php?xml=squid.xml&amp;id=0</url>
+		</menu>
+		<service>
+			<name>bandwidthd</name>
+			<rcfile>bandwidthd.sh</rcfile>
+			<executable>bandwidthd</executable>
+			<description>BandwidthD bandwidth monitoring daemon</description>
+		</service>
+		<service>
+			<name>squid</name>
+			<rcfile>squid.sh</rcfile>
+			<executable>squid</executable>
+			<description>Proxy server Service</description>
+		</service>
+		<squid>
+			<config>
+				<active_interface>lan</active_interface>
+				<allow_interface>on</allow_interface>
+				<transparent_proxy />
+				<private_subnet_proxy_off />
+				<defined_ip_proxy_off />
+				<defined_ip_proxy_off_dest />
+				<log_enabled>on</log_enabled>
+				<log_dir>/var/squid/log</log_dir>
+				<log_rotate>30</log_rotate>
+				<proxy_port>3128</proxy_port>
+				<icp_port />
+				<visible_hostname />
+				<admin_email />
+				<error_language>English</error_language>
+				<disable_xforward />
+				<disable_via />
+				<uri_whitespace>strip</uri_whitespace>
+				<dns_nameservers />
+				<disable_squidversion>on</disable_squidversion>
+				<custom_options>log_fqdn on</custom_options>
+			</config>
+		</squid>
+		<pfblocker>
+			<config>
+				<enable_cb />
+				<enable_log />
+				<inbound_interface>wan</inbound_interface>
+				<inbound_deny_action>block</inbound_deny_action>
+				<outbound_interface>lan</outbound_interface>
+				<outbound_deny_action>reject</outbound_deny_action>
+				<credits />
+				<donation />
+			</config>
+		</pfblocker>
+		<squidguardgeneral>
+			<config>
+				<squidguard_enable />
+				<enable_guilog />
+				<enable_log />
+				<log_rotation />
+				<adv_blankimg />
+				<blacklist />
+				<blacklist_proxy />
+				<blacklist_url>http://squidguard.mesd.k12.or.us/blacklists.tgz</blacklist_url>
+			</config>
+		</squidguardgeneral>
+		<squidguarddefault>
+			<config>
+				<dest>all</dest>
+				<notallowingip />
+				<deniedmessage>You are not authorized to be relayed by this proxy.</deniedmessage>
+				<redirect_mode>rmod_int</redirect_mode>
+				<redirect />
+				<safesearch />
+				<rewrite />
+				<enablelog>on</enablelog>
+			</config>
+		</squidguarddefault>
+		<squidguarddest />
+		<sarg>
+			<config>
+				<proxy_server>squid</proxy_server>
+				<report_options>use_graphs,resolve_ip,remove_temp_files,main_index,index_tree,use_comma,long_url,bytes_in_sites_users_report</report_options>
+				<report_type>topusers,topsites,sites_users,users_sites,date_time,denied,auth_failures,site_user_time_date,downloads</report_type>
+				<report_date_format>u</report_date_format>
+				<report_charset>UTF-8</report_charset>
+				<hostalias />
+				<max_elapsed>0</max_elapsed>
+				<lastlog>0</lastlog>
+				<topuser_num>0</topuser_num>
+				<denied_report_limit>0</denied_report_limit>
+				<authfail_report_limit>0</authfail_report_limit>
+				<user_report_limit>0</user_report_limit>
+				<exclude_string />
+				<exclude_hostlist />
+				<exclude_codelist />
+			</config>
+		</sarg>
+		<sarguser>
+			<config>
+				<user_sort_field>BYTES</user_sort_field>
+				<ntlm_user_format>domainname+username</ntlm_user_format>
+				<exclude_userlist />
+				<include_userlist />
+				<usertab>MTkyLjE2OC4yNTMuMTAxIEpvbmF0aGFuIEZyYW5r</usertab>
+				<ldap_enable />
+				<ldap_host />
+				<ldap_port>389</ldap_port>
+				<ldap_bind_dn>admin</ldap_bind_dn>
+				<ldap_bind_pw>pfsense</ldap_bind_pw>
+				<ldap_base_search />
+				<ldap_filter_search>(uid=%s)</ldap_filter_search>
+				<ldap_target_attr>cn</ldap_target_attr>
+			</config>
+		</sarguser>
+		<sargschedule>
+			<config>
+				<enable>on</enable>
+				<description />
+				<args />
+				<frequency>1h</frequency>
+				<action>none</action>
+			</config>
+		</sargschedule>
+		<squidguardacl />
+		<squidcache>
+			<config>
+				<harddisk_cache_size>5000</harddisk_cache_size>
+				<harddisk_cache_system>ufs</harddisk_cache_system>
+				<harddisk_cache_location>/var/squid/cache</harddisk_cache_location>
+				<memory_cache_size>8</memory_cache_size>
+				<minimum_object_size>0</minimum_object_size>
+				<maximum_object_size>4</maximum_object_size>
+				<maximum_objsize_in_mem>32</maximum_objsize_in_mem>
+				<level1_subdirs>16</level1_subdirs>
+				<memory_replacement_policy>heap GDSF</memory_replacement_policy>
+				<cache_replacement_policy>heap LFUDA</cache_replacement_policy>
+				<cache_swap_low>90</cache_swap_low>
+				<cache_swap_high>95</cache_swap_high>
+				<donotcache />
+				<enable_offline />
+			</config>
+		</squidcache>
+		<pfblockertopspammers>
+			<config>
+				<countries>KR,CN,IN,RU,TR,VN,UA,BR,VE,PK</countries>
+				<action>Deny_Inbound</action>
+			</config>
+		</pfblockertopspammers>
+		<bandwidthd>
+			<config>
+				<enable>on</enable>
+				<active_interface>lan</active_interface>
+				<subnets_custom>{{ salt['pillar.get']('proxygate:vpn:local_network') }}</subnets_custom>
+				<skipintervals />
+				<graphcutoff />
+				<promiscuous />
+				<outputcdf>on</outputcdf>
+				<recovercdf>on</recovercdf>
+				<filter />
+				<drawgraphs>on</drawgraphs>
+				<meta_refresh />
+				<graph_log_info />
+			</config>
+		</bandwidthd>
+		<squidauth>
+			<config>
+				<auth_method>none</auth_method>
+				<ldap_version />
+				<auth_server />
+				<auth_server_port />
+				<auth_ntdomain />
+				<ldap_user />
+				<ldap_pass />
+				<ldap_basedomain />
+				<ldap_userattribute />
+				<ldap_filter />
+				<radius_secret />
+				<msnt_secondary />
+				<auth_prompt />
+				<auth_processes />
+				<auth_ttl />
+				<unrestricted_auth />
+				<no_auth_hosts />
+			</config>
+		</squidauth>
+		<squidusers />
+		<havpavset>
+			<config>
+				<havpavupdate>5</havpavupdate>
+				<dbregion>ca</dbregion>
+				<avupdateserver />
+				<avsetlog />
+				<avsetsyslog />
+			</config>
+		</havpavset>
+		<havp>
+			<config>
+				<enable>on</enable>
+				<proxymode>squid</proxymode>
+				<proxyinterface>lo0</proxyinterface>
+				<proxyport>3125</proxyport>
+				<parentproxy />
+				<enablexforwardedfor />
+				<enableforwardedip>on</enableforwardedip>
+				<lang>en</lang>
+				<maxdownloadsize />
+				<range />
+				<whitelist />
+				<blacklist />
+				<failscanerror />
+				<enableramdisk />
+				<scanmaxsize>5000</scanmaxsize>
+				<scanimg>on</scanimg>
+				<scanstream>on</scanstream>
+				<scanbrokenexe>on</scanbrokenexe>
+				<log />
+				<syslog />
+			</config>
+		</havp>
+		<squidupstream>
+			<config>
+				<proxy_forwarding />
+				<proxy_addr />
+				<proxy_port />
+				<icp_port />
+				<username />
+				<password />
+			</config>
+		</squidupstream>
+		<squidnac>
+			<config>
+				<allowed_subnets>MTkyLjE2OC4yNTMuMC8yNA==</allowed_subnets>
+				<unrestricted_hosts />
+				<banned_hosts />
+				<whitelist />
+				<blacklist />
+				<ext_cachemanager />
+				<addtl_ports />
+				<addtl_sslports>1024-65535</addtl_sslports>
+			</config>
+		</squidnac>
+		<tab>
+			<name>Client Export</name>
+			<tabgroup>OpenVPN</tabgroup>
+			<url>/vpn_openvpn_export.php</url>
+		</tab>
+		<tab>
+			<name>Shared Key Export</name>
+			<tabgroup>OpenVPN</tabgroup>
+			<url>/vpn_openvpn_export_shared.php</url>
+		</tab>
+		<tab>
+			<text>General</text>
+			<url>/pkg_edit.php?xml=squid.xml&amp;id=0</url>
+			<active />
+		</tab>
+	</installedpackages>
+{% for ca in salt['pillar.get']('proxygate:cas') %}
+        <ca>
+                <refid>{{ ca['ref']  }}</refid>
+                <descr>{{ ca['desc']  }}</descr>
+                <crt>{{ ca['crt'] }}</crt>
+                <prv>{{ ca['prv'] }}</prv>
+                <serial>{{ ca['serial'] }}</serial>
+        </ca>
+{% endfor %}
+	<gateways>
+		<gateway_item>
+			<interface>wan</interface>
+			<gateway>dynamic</gateway>
+			<name>GW_WAN</name>
+			<weight>1</weight>
+			<ipprotocol>inet</ipprotocol>
+			<interval />
+			<descr>Interfacewandynamic gateway</descr>
+			<defaultgw />
+		</gateway_item>
+		<gateway_item>
+			<interface>opt1</interface>
+			<gateway>10.0.0.1</gateway>
+			<name>Management_VPN_Gateway</name>
+			<weight>1</weight>
+			<ipprotocol>inet</ipprotocol>
+			<interval />
+			<descr>Gateway used for the management VPN</descr>
+		</gateway_item>
+	</gateways>
+	<ppps />
+	<dyndnses />
+	<dhcrelay />
+	<vlans />
+	<dhcpdv6 />
+	<dhcrelay6 />
+	<nat>
+		<outbound>
+			<mode>automatic</mode>
+		</outbound>
+	</nat>
+</pfsense>

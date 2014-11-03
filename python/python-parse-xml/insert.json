@@ -1,0 +1,7 @@
+{
+  "pfsense": {
+    "version": "10.10",
+    "theme": "pfsense_ng_3"
+  }
+}
+
