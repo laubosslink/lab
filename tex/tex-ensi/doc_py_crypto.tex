@@ -27,6 +27,8 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 \definecolor{background}{rgb}{0.97, 0.97, 0.97}
 
+
+
 \lstset{ % Settings de la coloration de code
   backgroundcolor=\color{background},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
@@ -55,6 +57,7 @@
   title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
+
 \geometry{vmargin=2cm}
 \setlength{\headheight}{16pt}
 
@@ -66,8 +69,9 @@
   \fancyfoot[C]{\textbf{page \thepage}}
 }
 
-\author{Laurent PARMENTIER, Quentin DERORY, Jean-Baptiste MAURANYAPIN \\ Encadrant : Patrick LACHARME}
+
 \title{\bf{Documentation de la librairie PyCrypto}}
+\author{Laurent PARMENTIER\\ Quentin DERORY\\ Jean-Baptiste MAURANYAPIN \\ \\ Encadrant : Patrick LACHARME}
 \date{04/10/2014}
 
 \begin{document}
@@ -76,34 +80,36 @@
 
 \tableofcontents
 
-\chapter*{Introduction}
-
 \chapter{Algorithmes}
 
 \section{MD5}
 
-    #!/usr/bin/python 
-     
-    import sys
-    import os
-    from Crypto.Hash import MD5
-     
-    import os
-    from Crypto.Hash import MD5
-    def get_file_checksum(filename):
-        h = MD5.new()
-        chunk_size = 8192 
-        with open(filename, 'rb') as f:
-            while True:
-                chunk = f.read(chunk_size)
-                if len(chunk) == 0:
-                    break
-                h.update(chunk)
-        return h.hexdigest()
-     
-    if __name__ == "__main__":
-        print get_file_checksum(sys.argv[1]);
+L'algorithme MD5, est une fonction de Hash, qui était très utilisé dans le domaine web.
 
+\begin{lstlisting}
+#!/usr/bin/python 
 
+import sys
+import os
+from Crypto.Hash import MD5
+
+import os
+from Crypto.Hash import MD5
+def get_file_checksum(filename):
+    h = MD5.new()
+    chunk_size = 8192 
+    with open(filename, 'rb') as f:
+        while True:
+            chunk = f.read(chunk_size)
+            if len(chunk) == 0:
+                break
+            h.update(chunk)
+    return h.hexdigest()
+
+if __name__ == "__main__":
+    print get_file_checksum(sys.argv[1]);
+\end{lstlisting}
+
+Ainsi sur le fichier contenant\footnote{\url{https://github.com/}}
 
 \end{document}
