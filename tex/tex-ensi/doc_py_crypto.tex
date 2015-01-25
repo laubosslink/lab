@@ -69,7 +69,6 @@
   \fancyfoot[C]{\textbf{page \thepage}}
 }
 
-
 \title{\bf{Documentation de la librairie PyCrypto}}
 \author{Laurent PARMENTIER\\ Quentin DERORY\\ Jean-Baptiste MAURANYAPIN \\ \\ Encadrant : Patrick LACHARME}
 \date{04/10/2014}
@@ -80,36 +79,78 @@
 
 \tableofcontents
 
-\chapter{Algorithmes}
+\chapter{Fonction de hachage}
 
 \section{MD5}
 
-L'algorithme MD5, est une fonction de Hash, qui était très utilisé dans le domaine web.
+L'algorithme MD5, est une fonction de Hash, qui était très utilisé dans le domaine web \footnote{\url{https://github.com/}}.
 
 \begin{lstlisting}
 #!/usr/bin/python 
-
-import sys
-import os
 from Crypto.Hash import MD5
 
-import os
-from Crypto.Hash import MD5
-def get_file_checksum(filename):
-    h = MD5.new()
-    chunk_size = 8192 
-    with open(filename, 'rb') as f:
-        while True:
-            chunk = f.read(chunk_size)
-            if len(chunk) == 0:
-                break
-            h.update(chunk)
-    return h.hexdigest()
-
-if __name__ == "__main__":
-    print get_file_checksum(sys.argv[1]);
+hash = MD5.new()
+hash.update("hello world")
+print hash.hexdigest()
 \end{lstlisting}
 
-Ainsi sur le fichier contenant\footnote{\url{https://github.com/}}
+\section{SHA-256}
+
+\begin{lstlisting}
+#!/usr/bin/python
+from Crypto.Hash import SHA256
+
+hash = SHA256.new()
+hash.update("hello world")
+print hash.hexdigest() # print hash sha256 of "hello world"
+\end{lstlisting}
+
+\chapter{Chiffrement a cle prive}
+
+\section{3DES}
+
+\begin{lstlisting}
+#!/usr/bin/python
+from Crypto import Random
+from Crypto.Cipher import DES3
+
+key = b'une cle 16 octet'
+iv = Random.new().read(DES3.block_size)
+des3 = DES3.new(key, DES3.MODE_ECB, iv)
+print des3.encrypt("hello wo") # obligatoire d'avoir une longueur de mot multiple de 8
+#TODO mot sur dechiffrement
+\end{lstlisting}
+
+\section{AES}
+
+\begin{lstlisting}
+#!/usr/bin/python
+from Crypto import Random
+from Crypto.Cipher import AES
+
+key = b'une cle 16 octet'
+iv = Random.new().read(AES.block_size)
+aes = AES.new(key, AES.MODE_ECB, iv)
+print aes.encrypt("hello world     ") # obligatoire d'avoir une longueur de mot multiple de 16
+#TODO mot sur dechiffrement
+\end{lstlisting}
+
+\section{ARC4}
+
+\begin{lstlisting}
+#!/usr/bin/python
+from Crypto.Cipher import ARC4
+key = b'Tres longue cle confidentielle'
+arc4 = ARC4.new(key)
+print arc4.encrypt("Un message    ")
+\end{lstlisting}
+
+\section{CAST}
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+\section{BLOWFISH}
 
 \end{document}

@@ -1,3 +1,6 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Algorithmes}{2}{chapter.1}
+\contentsline {chapter}{\numberline {1}Fonction de hachage}{2}{chapter.1}
 \contentsline {section}{\numberline {1.1}MD5}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}SHA-256}{2}{section.1.2}
+\contentsline {chapter}{\numberline {2}Chiffrement a cle prive}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}DES}{3}{section.2.1}

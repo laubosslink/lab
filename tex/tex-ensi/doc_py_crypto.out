@@ -1,2 +1,5 @@
-\BOOKMARK [0][-]{chapter.1}{Algorithmes}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Fonction de hachage}{}% 1
 \BOOKMARK [1][-]{section.1.1}{MD5}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{SHA-256}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Chiffrement a cle prive}{}% 4
+\BOOKMARK [1][-]{section.2.1}{DES}{chapter.2}% 5
