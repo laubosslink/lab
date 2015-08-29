@@ -1,0 +1,5 @@
+codes:
+  200: 'Success'
+  400: 'This command does not exist'
+  500: 'Error during execution'
+  999: 'Status is unknown'

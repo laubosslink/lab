@@ -1,0 +1,10 @@
+{
+    "client": {
+        "debug": true,
+        "data_directory": "/home/lparmentier/data",
+        "server": {
+            "host": "localhost",
+            "port": 8888
+        }
+    }
+}

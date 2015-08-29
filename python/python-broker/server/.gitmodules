@@ -1,0 +1,3 @@
+[submodule "lib/libraries/highpdf"]
+	path = lib/libraries/highpdf
+	url = git@bitbucket.org:quatral/edge-hs-conversion-library-highpdf.git
