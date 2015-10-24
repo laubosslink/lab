@@ -37,7 +37,7 @@ class Runner:
 			del self.library
 
 		lib = __import__('libraries.' + library, fromlist=[library.title()])
-		self.library = eval('lib.' + library.title() + '()')
+		self.library = eval('lib.' + library.title() + '()') # TODO check security about eval()
 
 	def run(self):
 		return self.library.run(self.params)

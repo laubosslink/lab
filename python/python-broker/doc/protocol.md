@@ -16,7 +16,7 @@ BROKER/1.0
 ### LIST_LIBRARIES
 
 ```
-BROKER/1.0
+LIST_LIBRARIES
 200 library1,library2,...
 ```
 
