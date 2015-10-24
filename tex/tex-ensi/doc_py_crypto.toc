@@ -3,4 +3,8 @@
 \contentsline {section}{\numberline {1.1}MD5}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}SHA-256}{2}{section.1.2}
 \contentsline {chapter}{\numberline {2}Chiffrement a cle prive}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}DES}{3}{section.2.1}
+\contentsline {section}{\numberline {2.1}3DES}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}AES}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}ARC4}{3}{section.2.3}
+\contentsline {section}{\numberline {2.4}CAST}{4}{section.2.4}
+\contentsline {section}{\numberline {2.5}BLOWFISH}{4}{section.2.5}
